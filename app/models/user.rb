@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   belongs_to :category
   has_many :posts
+  has_one_attached :photo
 
   validates :nickname, format: {
     with: /^[A-Za-z0-9_.]+$/,
