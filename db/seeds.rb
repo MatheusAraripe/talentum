@@ -16,11 +16,18 @@ draw = Category.last
 
 puts "creating fake users"
 
+description = "Lorem Ipsum is simply dummy text of the printing and
+typesetting industry. Lorem Ipsum has been the industry's standard dummy
+text ever since the 1500s, when an unknown printer took a galley of type and scram ;
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+unknown printer took a galley of type and scram "
+
 User.create(first_name: "Pablo", last_name: "Picasso",
-  email: "pablopicasso@email.com", nickname: "pablito", password: "123456", category_id: draw.id)
+  email: "pablopicasso@email.com", nickname: "pablito", password: "123456", category_id: draw.id, description: description)
 
 User.create(first_name: "Henri", last_name: "Cartier",
-  email: "henricartier@email.com", nickname: "hcb", password: "123456", category_id: draw.id)
+  email: "henricartier@email.com", nickname: "hcb", password: "123456", category_id: draw.id, description: description)
 
 henri = User.last
 
