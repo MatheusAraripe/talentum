@@ -22,3 +22,14 @@
     </div>
   </div>
 </div>
+
+<div class="feed">
+    <% @posts.each do |post| %>
+      <div class="card-post">
+        <%= cl_image_tag (post.photo.key), {class: "item3"}%><br>
+        <div class="post-title">
+          <p><%= post.title %></p>
+        </div>
+      </div>
+    <% end %>
+</div>
