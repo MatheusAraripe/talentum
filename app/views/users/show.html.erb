@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <div class="row m-3">
+      <div class="col col-md col-sm-6">
+        <h1><%= @user.nickname %></h1>
+      </div>
+      <div class="col-md-auto  col-sm-6">
+        <%= image_tag "add-post.png", :class => "profile-icons"%>
+        <%= image_tag "chat-icon.png", :class => "profile-icons" %>
+      </div>
+    </div>
+    <div class="col-sm">
+      <% if @user.photo.key == nil %>
+        <%= image_tag "avatar.png", {class: "avatar-large"} %>
+      <% else %>
+        <%= cl_image_tag (@user.photo.key), {class: "avatar-large"}%>
+      <% end %>
+    </div>
+    <div class="col-9">
+      <h3>Description</h3>
+      <p><%= @user.description %></p>
+    </div>
+  </div>
+</div>
