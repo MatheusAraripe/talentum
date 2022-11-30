@@ -20,6 +20,10 @@
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "cetegory" }%>
+    <%= f.input :description,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "Description" }%>
     <%= f.input :photo, as: :file %>
     <%= f.input :email,
                 required: true,
