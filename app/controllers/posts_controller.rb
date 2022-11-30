@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
-  #before_action :set_user, only: %i[new create]
+
+  # before_action :set_user, only: %i[new create]
 
   def new
     @post = Post.new
