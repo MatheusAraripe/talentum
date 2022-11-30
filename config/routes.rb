@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   # root "articles#index"
   resources :users, only: [:show]
   resources :categories, only: [:show]
+  resources :posts, only: [:new, :create]
 end
