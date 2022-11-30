@@ -1,19 +1,17 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
+  border-radius: 50px;
+  margin: 20px;
 }
 
 .navbar-lewagon .navbar-collapse {
-  flex-grow: 10;
+  flex-grow: 0;
 }
 
 .navbar-lewagon .navbar-brand img {
   width: 60px;
-
 }
-.title {
-  justify-content: space-between;
+.navbar-lewagon .navbar-title {
   font-family: 'Abhaya Libre', Times, serif;
-  color: $dark-grey;
-
 }
