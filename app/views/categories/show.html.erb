@@ -1,5 +1,11 @@
 <h2> <%= @category.name %> </h2>
 
-<% @users.each do |user| %>
-  <%= user.nickname %>
+<% @posts.each do |post| %>
+  <%= cl_image_tag (post.photo.key) %>
+  <%= post.user.nickname %>
+  <% if post.user.photo.key == nil %>
+    <%= image_tag "avatar.png", {class: "avatar-large"} %>
+  <% else %>
+    <%= cl_image_tag (post.user.photo.key), {class: "avatar-large"}%>
+  <% end %>
 <% end %>
