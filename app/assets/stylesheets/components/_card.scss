@@ -1,0 +1,23 @@
+.feed{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 16px;
+  margin: 0.9rem ;
+}
+.card-post {
+  justify-content: center;
+  border-radius: 8px;
+}
+
+.card-post > img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+
+.card-post .item1 { height: 200px; }
+.card-post .item2 { height: 300px; }
+.card-post .item3 { height: 400px; }
+.card-post .item4 { height: 500px; }
