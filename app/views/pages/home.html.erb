@@ -1,9 +1,9 @@
 
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(#);">
-  <div class="container">
+  <div class="banner-infos">
     <h1>Welcome to Talentum!</h1>
     <p>Connecting artists with partners and art lovers around the world! 🌍 </p>
-    <a class="btn btn-flat" href="#">Sign up</a>
+    <%= link_to "Join us", new_user_registration_path, class: "btn-flat" %></a>
   </div>
 </div>
 
@@ -31,9 +31,10 @@
 
 </div>
 
-<h2>My favourite artists</h2>
-<h2>Top Painters</h2>
-<h2>Top Photographers</h2>
-<h2>Top Drawers</h2>
-<h2>Top illustrators</h2>
-
+<div>
+  <h2>My favourite artists</h2>
+  <h2>Top Painters</h2>
+  <h2>Top Photographers</h2>
+  <h2>Top Drawers</h2>
+  <h2>Top illustrators</h2>
+</div>
