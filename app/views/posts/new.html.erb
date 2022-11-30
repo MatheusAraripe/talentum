@@ -1,0 +1,8 @@
+<h1>Create a post</h1>
+<%= simple_form_for [@post] do |f| %>
+  <%= f.input :title %>
+  <%= f.input :photo, as: :file %>
+  <%= f.input :description %>
+  <%= f.input :category_id %>
+  <%= f.submit "Create a post", class: "btn btn-primary" %>
+<% end %>
