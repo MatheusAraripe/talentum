@@ -1,8 +1,16 @@
-<h1>Create a post</h1>
-<%= simple_form_for [@post] do |f| %>
-  <%= f.input :title %>
-  <%= f.input :photo, as: :file %>
-  <%= f.input :description %>
-  <%= f.input :category_id %>
-  <%= f.submit "Create a post", class: "btn btn-primary" %>
-<% end %>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-20 col-sm-10">
+
+      <h1>Create a post</h1>
+      <%= simple_form_for [@post] do |f| %>
+        <%= f.input :title, placeholder: "ex: beautiful landscape"%>
+        <%= f.input :photo, as: :file %>
+        <%= f.input :description, placeholder: "ex: beautiful landscape in the sunrise" %>
+        <%= f.input :category_id, placeholder: "ex: photography, illustration, drawing ..." %>
+        <%= f.submit "Create a post", class: "btn btn-primary" %>
+      <% end %>
+
+    </div>
+  </div>
+</div>

@@ -1,17 +1,25 @@
-<h2> <%= @category.name %> </h2>
+<div class="container">
+  <div class="row justify-content-center">
 
-<div class="feed">
-    <% @posts.each do |post| %>
-      <div class="card-post">
-        <%= cl_image_tag (post.photo.key), {class: "item3"}%><br>
-        <div class="card-post-info">
-          <% if post.user.photo.key == nil %>
-            <%= image_tag "avatar.png", {class: "avatar-bordered"} %>
-          <% else %>
-            <%= cl_image_tag (post.user.photo.key), {class: "avatar-bordered"}%>
-          <% end %>
-          <p><%= post.user.nickname %></p>
-        </div>
-      </div>
-    <% end %>
+    <h2> <%= @category.name %> </h2>
+
+    <%= render "shared/search_form" %>
+
+    <div class="feed">
+        <% @posts.each do |post| %>
+          <div class="card-post">
+            <%= cl_image_tag (post.photo.key), {class: "item3"}%><br>
+            <div class="card-post-info">
+              <% if post.user.photo.key == nil %>
+                <%= image_tag "avatar.png", {class: "avatar-bordered"} %>
+              <% else %>
+                <%= cl_image_tag (post.user.photo.key), {class: "avatar-bordered"}%>
+              <% end %>
+              <p><%= post.user.nickname %></p>
+            </div>
+          </div>
+        <% end %>
+    </div>
+
+  </div>
 </div>
