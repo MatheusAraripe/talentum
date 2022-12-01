@@ -1,11 +1,17 @@
 <h2> <%= @category.name %> </h2>
 
-<% @posts.each do |post| %>
-  <%= cl_image_tag (post.photo.key) %>
-  <%= post.user.nickname %>
-  <% if post.user.photo.key == nil %>
-    <%= image_tag "avatar.png", {class: "avatar-large"} %>
-  <% else %>
-    <%= cl_image_tag (post.user.photo.key), {class: "avatar-large"}%>
-  <% end %>
-<% end %>
+<div class="feed">
+    <% @posts.each do |post| %>
+      <div class="card-post">
+        <%= cl_image_tag (post.photo.key), {class: "item3"}%><br>
+        <div class="card-post-info">
+          <% if post.user.photo.key == nil %>
+            <%= image_tag "avatar.png", {class: "avatar-bordered"} %>
+          <% else %>
+            <%= cl_image_tag (post.user.photo.key), {class: "avatar-bordered"}%>
+          <% end %>
+          <p><%= post.user.nickname %></p>
+        </div>
+      </div>
+    <% end %>
+</div>
