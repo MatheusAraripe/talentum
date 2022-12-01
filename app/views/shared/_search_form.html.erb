@@ -1,0 +1,10 @@
+<%= form_with url: category_path, method: :get, class: "d-flex" do %>
+  <div class="search-form-control form-group">
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control string required",
+      placeholder: "Find a user"
+    %>
+    <%= submit_tag "Search", class: "btn btn-flat" %>
+  </div>
+<% end %>
