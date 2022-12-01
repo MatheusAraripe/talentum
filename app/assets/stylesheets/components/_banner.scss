@@ -1,23 +1,30 @@
 .banner {
   background-size: cover;
   background-position: center;
-  padding: 150px 0;
+  padding: 70px 0;
 }
 
 .banner h1 {
   margin: 0;
   color: #9747FF;
-  font-size: 32px;
+  font-size: 40px;
   font-weight: bold;
 }
 
 .banner p {
-  font-size: 20px;
+  font-size: 23px;
   font-family: "Abhaya libre";
-  color: #727272;
-  opacity: .7;
+  color: #565656;
+
 }
 
-.button-flat {
-  width: 20%;
+.category-card {
+  text-decoration: none;
+}
+
+.favorite-title {
+  font-size: 20px;
+  color: black;
+  -webkit-text-stroke-width: medium
+
 }
