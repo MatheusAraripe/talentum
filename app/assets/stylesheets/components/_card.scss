@@ -16,6 +16,17 @@
   border-radius: 8px;
 }
 
+.card-post-info {
+  display: flex;
+  align-items: center;
+  margin-top: 2px;
+}
+
+.card-post-info > p {
+  margin: 0px 0px 0px 5px
+}
+
+
 
 .card-post .item1 { height: 200px; }
 .card-post .item2 { height: 300px; }
