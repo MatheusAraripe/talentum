@@ -4,7 +4,8 @@
   padding: 8px 24px;
   border-radius: 50px;
   font-weight: lighter;
-  opacity: 0.6;
+  font-size: 15px;
+  text-decoration: none;
   transition: opacity 0.3s ease;
 }
 
@@ -18,6 +19,8 @@
   border-radius: 50px;
   background: #75CBED;
   transition: background 0.3s ease;
+  font-size: 15px;
+  text-decoration: none;
 }
 
 .btn-flat:hover {
@@ -33,6 +36,7 @@
   background: linear-gradient(#75CBED, #3fa1c8);
   transition: background 0.3s ease;
   border: 1px solid #3fa1c8;
+
 }
 
 .btn-gradient:hover {
