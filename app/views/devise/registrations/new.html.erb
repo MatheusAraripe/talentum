@@ -24,7 +24,9 @@
                         autofocus: true,
                         placeholder: "nickname",
                         input_html: { autocomplete: "nickname" }%>
-            <%= f.input :category_id,
+            <%= f.association :category,
+                        label_method: :name,
+                        value_method: :id,
                         required: true,
                         autofocus: true,
                         placeholder: "photo, drawing, illustration...",
@@ -52,11 +54,11 @@
           </div>
 
           <div class="form-actions">
-            <%= f.button :submit, "Sign up" %>
+            <%= f.button :submit, "Sign up", class: "btn btn-ghost" %>
           </div>
         <% end %>
 
-        <%= render "devise/shared/links" %>
+        <%# <%= render "devise/shared/links" %>
      </div>
     </div>
   </div>
