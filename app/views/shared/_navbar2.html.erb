@@ -1,12 +1,13 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
-      <%= image_tag "logo_talentum.png" %>
+    <%= link_to root_path, class: "navbar-brand" do %>
+      <%= image_tag "house-solid.svg" %>
     <% end %>
 
-    <div class="navbar-title">
-      <h1>Talentum</h1>
-    </div>
+    <%= link_to "Photography", category_path(@photo), style:"text-decoration: none;" %>
+    <%= link_to "Painting", category_path(@painting), style:"text-decoration: none;" %>
+    <%= link_to "Illustration", category_path(@illustration), style:"text-decoration: none;" %>
+    <%= link_to "Drawing", category_path(@drawing), style:"text-decoration: none;" %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>

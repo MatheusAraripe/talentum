@@ -1,62 +1,46 @@
 
-<div class="banner" style="background-image: url(<%=asset_url('banner_image.jpeg')%>);margin-bottom: 30px;">
+<div class="banner" style="margin-bottom: 30px;">
   <div class="banner-infos">
 
-<div class="container">
-  <div class="row justify-content">
-    <div class="col-12 col-sm-6">
-      <h1>Welcome to Talentum!</h1>
-      <p> </p>
-      <p>Connecting artists with partners and art lovers around the world! 🌍 </p>
-      <%= link_to "JOIN US", new_user_registration_path, class: "btn-flat" %></a>
-      <%= link_to "SIGN UP", new_user_registration_path, class: "btn-ghost" %></a>
+  <div class="container">
+    <div class="row justify-content">
+      <div class="col-12 col-sm-6">
+        <h1>Welcome to Talentum!</h1>
+        <p> </p>
+        <p>Connecting artists with partners and art lovers around the world! 🌍 </p>
+        <%= link_to "JOIN US", new_user_registration_path, class: "btn-flat" %></a>
+        <%= link_to "SIGN IN", new_user_session_path, class: "btn-ghost" %></a>
 
+          </div>
         </div>
       </div>
     </div>
+</div>
+<div class="container">
+
+  <div class="cards">
+    <%= link_to category_path(@categories.find_by(name:"Photography")), style:"text-decoration: none;" do %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://img.freepik.com/fotos-gratis/bela-foto-de-uma-cachoeira-caindo-das-montanhas_181624-1282.jpg?w=1380&t=st=1669983963~exp=1669984563~hmac=54ed155c304c8205db37311791c92ac1c0dd28d446a5b69ac7a9742b86808026)">
+        Photography
+      </div>
+    <% end %>
+
+    <%= link_to category_path(@categories.find_by(name:"Drawing")), style:"text-decoration: none;" do %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://img.freepik.com/fotos-gratis/estatua-grega-em-estilo-de-gravura_53876-128770.jpg?w=1380&t=st=1669983877~exp=1669984477~hmac=6c1ce90218ea447ab4ee5fdb2d8314c9b38e72d19c3e84e6fbef6fa42bfe32f3)">
+        Drawning
+      </div>
+    <% end %>
+
+    <%= link_to category_path(@categories.find_by(name:"Illustration")), style:"text-decoration: none;" do %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://img.freepik.com/vetores-gratis/fundo-de-ilustracao-de-criaturas-coloridas-e-assustadoras_516247-1.jpg?w=1380&t=st=1669983578~exp=1669984178~hmac=7a4435679af8daa0850905ffc1e3788ccd474f9cfb731e7c0047bc1c40075db9)">
+        Ilustration
+      </div>
+    <% end %>
+
+    <%= link_to category_path(@categories.find_by(name:"Painting")), style:"text-decoration: none;" do %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://img.freepik.com/vetores-gratis/adesivo-de-vetor-da-mao-de-deus-pintura-famosa-da-criacao-de-adao-remixada-de-obras-de-arte-de-michelangelo-buonarroti_53876-125649.jpg?w=1480&t=st=1669983811~exp=1669984411~hmac=4290897a75d379f437359b1ab127988a4b405431771f22bce86f920d69c285c5)">
+        Painting
+      </div>
+    <% end %>
   </div>
 </div>
-    <div class="container">
-      <div>
-        <div class="category-card d-flex justify-content-evenly align-items-center">
-          <div class="d-flex flex-column justify-content-center text-center"><%= link_to category_path(@categories.find_by(name:"Photography")), style:"text-decoration: none;" do %>
-              <%= image_tag "photography.png", class:"mb-1" %>
-              <p style="color: grey;">Photography</p>
-               <% end %>
-          </div>
-
-          <div class="text-center"><%= link_to category_path(@categories.find_by(name:"Illustration")), style:"text-decoration: none;" do %>
-              <%= image_tag "illustration.png", class:"mb-1" %>
-              <p style="color: grey;">Illustration</p>
-            <% end %>
-          </div>
-
-          <div class="text-center"><%= link_to category_path(@categories.find_by(name:"Drawing")), style:"text-decoration: none;" do %>
-              <%= image_tag "drawing.png", class:"mb-1" %>
-              <p style="color: grey;">Drawing</p>
-            <% end %>
-          </div>
-
-          <div class="text-center"><%= link_to category_path(@categories.find_by(name:"Painting")), style:"text-decoration: none;" do %>
-              <%= image_tag "painting.png", class:"mb-1" %>
-              <p style="color: grey;">Painting</p>
-            <% end %>
-          </div>
-
-
-
-        </div>
-      </div>
-    </div>
-
-      <div class="container">
-        <div class="row justify-content">
-          <div class="favorite-title">
-            <h2 style="font-size: 26px;">My favourite artists</h2>
-            <h2 style="font-size: 26px;">Top Painters</h2>
-            <h2 style="font-size: 26px;">Top Photographers</h2>
-            <h2 style="font-size: 26px;">Top Drawers</h2>
-            <h2 style="font-size: 26px;">Top illustrators</h2>
-          </div>
-        </div>
-      </div>
