@@ -8,12 +8,12 @@ class Post < ApplicationRecord
   validates :title, :category_id, :photo, presence: true
 
   include PgSearch::Model
-  pg_search_scope :search_by_title_and_description_and_user,
+  pg_search_scope :global_search,
     against: [ :title, :description ],
     associated_against: {
       user: [:nickname]
     },
     using: {
-      tsearch: { prefix: true } # <-- now `superman batm` will return something!
+      tsearch: { prefix: true }
     }
 end

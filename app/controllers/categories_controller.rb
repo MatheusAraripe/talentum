@@ -6,9 +6,9 @@ class CategoriesController < ApplicationController
 
     if params[:query].present?
       sql_query = <<~SQL
-        posts.title @@ :query
-        OR posts.description @@ :query
-        OR users.nickname @@ :query
+        posts.title ILIKE :query
+        OR posts.description ILIKE :query
+        OR users.nickname ILIKE :query
       SQL
        @posts = Post.joins(:user).where(sql_query, query: "%#{params[:query]}%")
      # sql_query = "title ILIKE :query OR description ILIKE :query"
