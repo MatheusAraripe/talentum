@@ -22,6 +22,7 @@
     <% else %>
       <% @post.comments.each do |comment| %>
         <p><%= comment.content %></p>
+        <p><%= comment.created_at.strftime("%I:%M %p") %></p>
       <% end %>
     <% end %>
   </div>
