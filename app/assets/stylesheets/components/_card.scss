@@ -32,3 +32,47 @@
 .card-post .item2 { height: 300px; }
 .card-post .item3 { height: 400px; }
 .card-post .item4 { height: 500px; }
+
+
+// Card for the posts#show
+
+.card-post-show {
+  overflow: hidden;
+  margin: 25px 50px 25px 50px;
+  height: 500px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  // align-items: center;
+}
+
+.card-post-show img {
+  height: 100%;
+  width: 40%;
+  object-fit: cover;
+}
+
+
+.card-post-show h1 {
+  font-size: 50px;
+  font-weight: bold;
+  margin: 5px 0px;
+}
+
+.card-post-show h2 {
+  font-size: 30px;
+  margin: 0;
+}
+
+.card-post-show p {
+  font-size: 20px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-post-show .card-post-infos {
+  padding: 16px;
+}

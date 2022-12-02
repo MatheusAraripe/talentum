@@ -1,7 +1,17 @@
 
-<%= cl_image_tag (@post.photo.key) %>
-<p><%= @post.title %></p>
-<p><%= @post.description %></p>
+<div class="row ms-5">
+  <%= link_to "Back to category", category_path(@post.category_id) %></a>
+</div>
+
+<div class="card-post-show">
+  <%= cl_image_tag (@post.photo.key) %>
+  <div class="card-post-infos">
+    <h1><%= @post.user.nickname %></h1>
+    <h2><%= @post.title %></h2>
+    <p><%= @post.description %></p>
+  </div>
+</div>
+
 
 <p><%= pluralize @post.comments.size, "comment" %></p>
 
@@ -28,5 +38,3 @@
   <% end %>
 
 </div>
-
-<%= link_to "Back to all posts", category_path(@post.category_id) %>
