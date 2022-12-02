@@ -1,0 +1,32 @@
+
+<%= cl_image_tag (@post.photo.key) %>
+<p><%= @post.title %></p>
+<p><%= @post.description %></p>
+
+<p><%= pluralize @post.comments.size, "comment" %></p>
+
+<div data-controller="insert-in-list" data-insert-in-list-position-value="beforeend">
+  <div data-insert-in-list-target="items">
+    <% if @post.comments.blank? %>
+      Be the first to leave a comment
+    <% else %>
+      <% @post.comments.each do |comment| %>
+        <p><%= comment.content %></p>
+      <% end %>
+    <% end %>
+  </div>
+
+  <%= simple_form_for([@post, @comment],
+    data: {
+      insert_in_list_target: "form",
+      action: "submit->insert-in-list#send"
+      }) do |f| %>
+    <%= f.input :content, :placeholder => 'Add a comment...' %>
+    <button name="button" type="submit" class="btn btn-flat">
+      Send
+    </button>
+  <% end %>
+
+</div>
+
+<%= link_to "Back to all posts", category_path(@post.category_id) %>
