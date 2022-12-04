@@ -7,7 +7,7 @@ class User < ApplicationRecord
   belongs_to :category
   has_many :posts
   has_one_attached :photo
-  has_many :comments
+  has_many :comments, dependent: :destroy
 
   validates :nickname, format: {
     with: /^[A-Za-z0-9_.]+$/,

@@ -21,8 +21,7 @@
       Be the first to leave a comment
     <% else %>
       <% @post.comments.each do |comment| %>
-        <%= cl_image_tag (comment.user_id.photo.key) %>
-        <p><%= comment.content %></p>
+        <p> <%= cl_image_tag (comment.user.photo.key), {class: "avatar-bordered"} %> <%= comment.user.nickname %>  <p><%= comment.content %></p> </p>
         <p><%= comment.created_at.strftime("%I:%M %p") %></p>
       <% end %>
     <% end %>
