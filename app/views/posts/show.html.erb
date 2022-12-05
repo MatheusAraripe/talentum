@@ -26,6 +26,11 @@
     <% end %>
   </div>
 
+  <% if policy(@post).edit? %>
+  <%= link_to "Edit this post", edit_post_path(@post) %> |
+  <% end %>
+
+  <%= button_to "Destroy this post", @post, method: :delete if policy(@post).destroy? %>
 
 
   <%= render "comments/form", post: @post, comment: @comment %>

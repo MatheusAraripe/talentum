@@ -18,4 +18,12 @@ class PostPolicy < ApplicationPolicy
     true
   end
 
+  def update?
+    record.user == user
+
+  def destroy?
+    record.user == user
+  end
+
+  end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_02_145428) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_05_144543) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -82,6 +82,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_02_145428) do
     t.string "nickname"
     t.bigint "category_id"
     t.text "description"
+    t.boolean "admin"
     t.index ["category_id"], name: "index_users_on_category_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
@@ -91,8 +92,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_02_145428) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
-  add_foreign_key "messages", "chatrooms"
-  add_foreign_key "messages", "users"
   add_foreign_key "posts", "categories"
   add_foreign_key "posts", "users"
 end
