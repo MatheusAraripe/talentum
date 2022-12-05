@@ -3,7 +3,6 @@ class UsersController < ApplicationController
 
   def index
     @users = policy_scope(User)
-    @users = User.where.not(id: current_user.id)
     @users = User.where(id: current_user.following)
   end
 
