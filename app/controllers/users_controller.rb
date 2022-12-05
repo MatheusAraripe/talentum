@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 
   def show
     @posts = Post.where(user_id: @user)
+    @followers = User.where(id: current_user.followers).count
     authorize @user
   end
 
