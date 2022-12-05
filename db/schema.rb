@@ -93,4 +93,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_02_145428) do
   add_foreign_key "comments", "users"
   add_foreign_key "posts", "categories"
   add_foreign_key "posts", "users"
+  add_foreign_key "messages", "chatrooms"
+  add_foreign_key "messages", "users"
 end
