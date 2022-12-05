@@ -25,6 +25,25 @@ class PostsController < ApplicationController
     authorize @post
   end
 
+    def edit
+      @post = Post.find(params[:id])
+      authorize @post
+    end
+
+    def update
+      @post = Post.find(params[:id])
+      @post.update(post_params)
+      redirect_to post_path(@post)
+      authorize @post
+    end
+
+    def destroy
+      @post = Post.find(params[:id])
+      @post.destroy
+      redirect_to user_path(current_user), status: :see_other
+      authorize @post
+    end
+
   private
 
   # def set_restaurant
