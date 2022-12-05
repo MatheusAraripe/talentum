@@ -6,20 +6,27 @@
           <div class="d-flex">
             <div class="user-name">
               <h1><%= @user.nickname %></h1>
-              <p> Followers: <%= @followers %></p>
             </div>
-            <div class="follow-button m-2">
+            <div class="m-2">
               <% unless @user == current_user %>
                 <% if current_user.is_following?(@user.id) %>
-                  <%= link_to "Unfollow",
+                  <div class="btn btn-unfollow">
+                    <%= link_to "Unfollow",
                       unfollow_user_path(@user.id),
-                      data: {turbo_method: :post}
+                      data: {turbo_method: :post},
+                      style: "text-decoration: none;
+                      color: black;"
                     %>
+                  </div>
                 <% else %>
-                  <%= link_to "Follow",
+                  <div class="btn btn-follow">
+                    <%= link_to "Follow",
                       follow_user_path(@user.id),
-                      data: {turbo_method: :post}
+                      data: {turbo_method: :post},
+                      style: "text-decoration: none;
+                      color: black;"
                     %>
+                  </div>
                 <% end %>
               <% end %>
             </div>

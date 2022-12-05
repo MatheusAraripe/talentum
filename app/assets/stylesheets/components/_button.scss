@@ -43,3 +43,35 @@
   background: linear-gradient(#3fa1c8, #1692c3);
   color: white;
 }
+
+.btn-follow {
+  color: #75CBED;
+  border: 1px solid #75CBED;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  font-size: 15px;
+  text-decoration: none;
+  transition: opacity 0.6s ease;
+}
+
+.btn-follow:hover {
+  background: #75CBED;
+}
+
+.btn-unfollow {
+  color: #75CBED;
+  border: 1px solid #75CBED;
+  background: #75CBED;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  font-size: 15px;
+  text-decoration: none;
+  transition: opacity 0.6s ease;
+}
+
+.btn-unfollow:hover {
+  background: none;
+  border: 1px solid #75CBED;
+}

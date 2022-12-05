@@ -3,7 +3,7 @@
   <% if current_user.is_following?(user.id) %>
     <%= link_to "Unfollow",
   unfollow_user_path(user.id),
-  data: {turbo_method: :post}
+  data: {turbo_method: :post}, style:"text-decoration: none;"
 %>
   <% else %>
     <%= link_to "Follow",
