@@ -21,21 +21,11 @@
       Be the first to leave a comment
     <% else %>
       <% @post.comments.each do |comment| %>
-        <p> <%= cl_image_tag (comment.user.photo.key), {class: "avatar-bordered"} %> <%= comment.user.nickname %>  <p><%= comment.content %></p> </p>
-        <p><%= comment.created_at.strftime("%I:%M %p") %></p>
+        <%= render "comments/comment", comment: comment %>
       <% end %>
     <% end %>
   </div>
 
-  <%= simple_form_for([@post, @comment],
-    data: {
-      insert_in_list_target: "form",
-      action: "submit->insert-in-list#send"
-      }) do |f| %>
-    <%= f.input :content, :placeholder => 'Add a comment...' %>
-    <button name="button" type="submit" class="btn btn-flat">
-      Send
-    </button>
-  <% end %>
+  <%= render "comments/form", post: @post, comment: @comment %>
 
 </div>
