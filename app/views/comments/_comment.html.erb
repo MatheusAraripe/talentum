@@ -1,2 +1,7 @@
-<p> <%= cl_image_tag (comment.user.photo.key), {class: "avatar-bordered"} %> <%= comment.user.nickname %>  <p><%= comment.content %></p> </p>
-<p><%= comment.created_at.strftime("%I:%M %p") %></p>
+<div id="<%= dom_id(comment) %>">
+  <p> <%= cl_image_tag (comment.user.photo.key), {class: "avatar-bordered"} %> <%= comment.user.nickname %>  <p><%= comment.content %></p> </p>
+  <p><%= comment.created_at.strftime("%I:%M %p") %></p>
+  <% if policy(comment).destroy? %>
+    <%= link_to "Delete", comment_path(comment), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+  <% end %>
+</div>
