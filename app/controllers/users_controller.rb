@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   def index
     @users = policy_scope(User)
     @users = User.where.not(id: current_user.id)
+    @users = User.where(id: current_user.following)
   end
 
   def show
@@ -15,7 +16,7 @@ class UsersController < ApplicationController
     if current_user.follow(@user.id)
       authorize @user
       respond_to do |format|
-        format.html { redirect_to root_path }
+        format.html { redirect_to user_path(@user) }
         format.js
       end
     end
@@ -25,7 +26,7 @@ class UsersController < ApplicationController
     if current_user.unfollow(@user.id)
       authorize @user
       respond_to do |format|
-        format.html { redirect_to root_path }
+        format.html { redirect_to user_path(@user) }
         format.js { render action: :follow }
       end
     end
