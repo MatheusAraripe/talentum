@@ -2,8 +2,36 @@
   <div class="row">
     <div class="row m-3">
       <div class="col col-md col-sm-6">
-
-        <h1><%= @user.nickname %></h1>
+        <div class="container">
+          <div class="d-flex">
+            <div class="user-name">
+              <h1><%= @user.nickname %></h1>
+            </div>
+            <div class="m-2">
+              <% unless @user == current_user %>
+                <% if current_user.is_following?(@user.id) %>
+                  <div class="btn btn-unfollow">
+                    <%= link_to "Unfollow",
+                      unfollow_user_path(@user.id),
+                      data: {turbo_method: :post},
+                      style: "text-decoration: none;
+                      color: black;"
+                    %>
+                  </div>
+                <% else %>
+                  <div class="btn btn-follow">
+                    <%= link_to "Follow",
+                      follow_user_path(@user.id),
+                      data: {turbo_method: :post},
+                      style: "text-decoration: none;
+                      color: black;"
+                    %>
+                  </div>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        </div>
           </div>
             <div class="col-md-auto  col-sm-6">
               <%= image_tag "add-post.png", :class => "profile-icons"%>
@@ -28,9 +56,6 @@
               <% end %>
               <div class="post-title">
                 <p><%= link_to post.title, post_path(post), style:"text-decoration: none; color: black;" %></p>
-
-
-
             </div>
           </div>
         <% end %>
