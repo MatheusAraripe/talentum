@@ -1,1 +1,2 @@
-<p><%= comment.content %></p>
+<p> <%= cl_image_tag (comment.user.photo.key), {class: "avatar-bordered"} %> <%= comment.user.nickname %>  <p><%= comment.content %></p> </p>
+<p><%= comment.created_at.strftime("%I:%M %p") %></p>
