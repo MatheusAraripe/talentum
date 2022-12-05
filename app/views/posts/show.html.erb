@@ -35,6 +35,11 @@
     <button name="button" type="submit" class="btn btn-flat">
       Send
     </button>
+
+    <%= link_to "Delete",
+    post_path(@post),
+    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+
   <% end %>
 
 </div>
