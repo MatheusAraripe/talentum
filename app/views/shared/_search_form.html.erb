@@ -1,10 +1,15 @@
-<%= form_with url: category_path, method: :get, class: "d-flex" do %>
-  <div class="search-form-control form-group">
-    <%= text_field_tag :query,
-      params[:query],
-      class: "form-control string required",
-      placeholder: "Find an user or a post"
-    %>
-    <%= submit_tag "Search", class: "btn btn-flat" %>
-  </div>
-<% end %>
+
+<div data-controller="refresh-list">
+
+  <%= form_with url: category_path, method: :get, html: { class: "d-flex", data: { refresh_list_target: 'form' } } do |f| %>
+    <div class="search-form-control form-group">
+      <%= text_field_tag :query,
+                          class: "form-control string required",
+                          placeholder: "Find an user or a post",
+                          value: params[:query],
+                          data: { refresh_list_target: 'searchInput',
+                          } %>
+    </div>
+  <% end %>
+
+</div>
