@@ -9,6 +9,12 @@
     <h1><%= @post.user.nickname %></h1>
     <h2><%= @post.title %></h2>
     <p><%= @post.description %></p>
+    <%= link_to like_post_path(@post), class: 'like-btn', data: {turbo_method: :put}, remote: :true do %>
+      <div>
+        <span><p><i class = "fa fa-thumbs-up fa-1x"></i></p></span>
+      </div>
+    <% end %>
+    <span class = 'likes-count'> Likes: <%= @post.get_upvotes.size %></span>
   </div>
 </div>
 

@@ -16,8 +16,14 @@ Rails.application.routes.draw do
   end
   resources :users, only: [:show]
   resources :categories, only: [:show]
+  
   resources :posts, only: [:new, :create, :show, :destroy, :edit, :update] do
-  resources :comments, only: :create
+    member do
+      put "like" => "posts#vote"
+    end
+    resources :comments, only: :create
   end
+  
   resources :comments, only: :destroy
+  
 end
