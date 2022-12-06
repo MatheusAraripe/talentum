@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
   resources :categories, only: [:show]
   resources :posts, only: [:new, :create, :show] do
+    member do
+      put "like" => "posts#vote"
+    end
     resources :comments, only: :create
   end
 end
