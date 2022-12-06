@@ -1,9 +1,10 @@
 class CategoriesController < ApplicationController
 
-  skip_before_action :authenticate_user!, only: [:show]
+  skip_before_action :authenticate_user!, only: [ :show ]
 
   def show
     @category = Category.find(params[:id])
+    #@posts = Post.where(category: @category)
 
     if params[:query].present?
       sql_query = <<~SQL
@@ -11,18 +12,15 @@ class CategoriesController < ApplicationController
       OR posts.description ILIKE :query
       OR users.nickname ILIKE :query
       SQL
-      posts_query = Post.joins(:user).where(sql_query, query: "%#{params[:query]}%")
-      @posts = posts_query.select { |post| post.category == @category }
+      @posts = Post.joins(:user).where(sql_query, query: "%#{params[:query]}%")
+      # sql_query = "title ILIKE :query OR description ILIKE :query"
+      # @user = User.where("nickname ILIKE ?", "%#{params[:query]}%")
+      # @posts = Post.where(sql_query, query: "%#{params[:query]}%")
+      #  @posts = Post.where(user: @user)
     else
       @posts = Post.where(category: @category)
     end
 
-    respond_to do |format|
-      format.html
-      format.text { render partial: 'list', locals: { posts: @posts }, formats: [:html] }
-    end
-
     authorize @category
   end
-
 end
