@@ -1,23 +1,27 @@
 <div class="container">
   <div class="row justify-content-center">
 
-    <h2> <strong><%= @category.name %></strong> </h2>
+    <h2> <%= @category.name %> </h2>
 
-    <div data-controller="refresh-posts">
+    <%= render "shared/search_form" %>
 
-      <%= form_with url: category_path(@category), method: :get, html: { class: 'mb-5', data: { refresh_posts_target: 'form' } } do |f| %>
-        <%= f.text_field :query,
-                          class: "form-control",
-                          placeholder: 'Search here',
-                          value: params[:query],
-                          data: {
-                            refresh_posts_target: 'searchInput',
-                            action: "keyup->refresh-posts#update"
-                    } %>
-      <% end %>
+    <div class="feed">
+        <% @posts.each do |post| %>
 
-      <%= render 'list', posts: @posts %>
+          <div class="card-post">
+            <%= cl_image_tag (post.photo.key), {class: "item3"}%><br>
+            <div class="card-post-info">
 
+              <% if post.user.photo.key == nil %>
+                <%= image_tag "avatar.png", {class: "avatar-bordered"} %>
+              <% else %>
+
+                <%= cl_image_tag (post.user.photo.key), {class: "avatar-bordered"}%>
+              <% end %>
+              <p><%= post.user.nickname %></p>
+            </div>
+          </div>
+        <% end %>
     </div>
 
   </div>
