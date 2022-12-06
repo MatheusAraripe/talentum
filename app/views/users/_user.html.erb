@@ -1,14 +1,15 @@
-<li data-user=<%= user.id %> >
-  <%= user.nickname %>
-  <% if current_user.is_following?(user.id) %>
-    <%= link_to "Unfollow",
-  unfollow_user_path(user.id),
-  data: {turbo_method: :post}, style:"text-decoration: none;"
-%>
-  <% else %>
-    <%= link_to "Follow",
-  follow_user_path(user.id),
-  data: {turbo_method: :post}
-%>
+<li  class = "following-list" data-user=<%= user.id %> >
+  <% link_to user_path(user), style:"text-decoration: none;" do %>
+    <div class="card-product">
+      <% if user.photo.key == nil %>
+        <%= image_tag "avatar.png" %>
+      <% else %>
+        <%= cl_image_tag (user.photo.key)%>
+      <% end %>
+      <div class="card-product-infos">
+        <h2><%= user.nickname %></h2>
+        <p><%= user.description %></p>
+      </div>
+    </div>
   <% end %>
 </li>
