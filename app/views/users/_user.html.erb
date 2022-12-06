@@ -1,5 +1,5 @@
-<li  class = "following-list" data-user=<%= user.id %> >
-  <% link_to user_path(user), style:"text-decoration: none;" do %>
+<%= link_to user_path(user), style:"text-decoration: none; color: black" do %>
+  <li  class = "following-list" data-user=<%= user.id %> >
     <div class="card-product">
       <% if user.photo.key == nil %>
         <%= image_tag "avatar.png" %>
@@ -9,7 +9,8 @@
       <div class="card-product-infos">
         <h2><%= user.nickname %></h2>
         <p><%= user.description %></p>
+        <strong class = "category-<%=user.category.name%>">#<%= user.category.name %></strong>
       </div>
     </div>
-  <% end %>
-</li>
+  </li>
+<% end %>
