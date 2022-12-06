@@ -1,9 +1,11 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
-  border-radius: 50px;
-  margin: 30px;
+  border: 1px solid rgb(211, 211, 211);
   height: 50px;
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -20,11 +22,23 @@
   color: $dark-grey;
 }
 
-.nav-category-icon{
-  width: 17px;
-  margin: 1rem;
+.tabs-underlined {
+  display: flex;
+  align-items: center;
 }
 
-.nav-category-icon:hover{
-  width: 19px;
+.tabs-underlined .tab-underlined {
+  color: black;
+  padding: 3px;
+  margin: 8px;
+  opacity: .4;
+  cursor: pointer;
+  text-decoration: none;
+  border-bottom: 4px solid transparent;
+}
+
+
+.tab-underlined:hover{
+  opacity: 1;
+  border-bottom: 1px solid black;
 }
