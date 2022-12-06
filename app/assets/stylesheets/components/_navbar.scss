@@ -29,7 +29,7 @@
 
 .tabs-underlined .tab-underlined {
   color: black;
-  padding: 3px;
+  padding: 12px;
   margin: 8px;
   opacity: .4;
   cursor: pointer;
@@ -41,4 +41,8 @@
 .tab-underlined:hover{
   opacity: 1;
   border-bottom: 1px solid black;
+}
+
+.tab-underlined > p {
+  margin: 0;
 }
