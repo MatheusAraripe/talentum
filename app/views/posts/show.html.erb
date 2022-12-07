@@ -10,10 +10,10 @@
       <div class="card-post-show-infos">
 
         <div class="d-flex justify-content-between align-items-center">
-          <h1> <%= link_to @post.user.nickname, user_path(@post.user.id), class:"text-decoration-none" %> </h1>
+          <h1 class="nickname-text"> <%= link_to @post.user.nickname, user_path(@post.user.id), class:"text-decoration-none" %> </h1>
           <% if @post.user == current_user %>
             <div class="d-flex">
-              <%= link_to "Edit", edit_post_path(@post), class: 'btn-flat' %>
+              <%= link_to "Edit", edit_post_path(@post), class: 'btn-flat mr-3' %>
               <%= link_to "Delete", @post, data: { "turbo-method": :delete }, class: 'btn-delete' %>
             </div>
           <% else %>
@@ -26,16 +26,20 @@
         </div>
 
         <div class="row">
-          <h2><%= @post.title %></h2>
-        </div>
+          <h2 class="nickname-text"><%= @post.title %></h2>
 
-        <div class="row">
+        </div>
+        <div class="row m-20">
           <p><%= @post.description %></p>
         </div>
 
+
         <div class="row">
-          <p> <%= @post.created_at.strftime("%d/%m/%Y %H:%M") %> <%= pluralize @post.get_upvotes.size, "like" %> <%= pluralize @post.comments.size, "comment" %> </p>
+          <p> <i class="far fa-clock"></i><%= @post.created_at.strftime("%d/%m/%Y %H:%M")%></p>
+          <p> <i class="far fa-thumbs-up"></i><%= pluralize @post.get_upvotes.size, "like" %></p>
+          <p> <i class="far fa-comment"></i><%= pluralize @post.comments.size, "comment" %></p>
         </div>
+
 
         <div class="row my-1">
           <div class = "comments-container", data-controller="insert-in-list" data-insert-in-list-position-value="beforeend">
@@ -50,7 +54,7 @@
               <% end %>
             </div>
 
-            <%= render "comments/form", post: @post, comment: @comment %>
+            <%= render "comments/form" , post: @post, comment: @comment %>
 
           </div>
         </div>
