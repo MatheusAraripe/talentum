@@ -13,7 +13,7 @@ class PostsController < ApplicationController
     @post.user = current_user
     authorize @post
     if @post.save
-      redirect_to user_path(current_user)
+      redirect_to post_path(@post)
     else
       render :new, status: :unprocessable_entity
     end
@@ -24,7 +24,6 @@ class PostsController < ApplicationController
     @comment = Comment.new
     authorize @post
   end
-
 
   def vote
     if !current_user.liked? @post
