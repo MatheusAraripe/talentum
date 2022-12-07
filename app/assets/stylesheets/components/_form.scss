@@ -41,9 +41,29 @@
 .search-form-control .form-control:focus {
   border: 1px solid #1EDD88;
   outline: none !important;
-
 }
 
 .new-post-form{
   margin-top: 8rem;
+ }
+
+.form_post {
+  font-family: Abhaya libre;
+  font-size: xx-large;
+  border-bottom: 1px solid grey !important;
+  border-top: 0px !important;
+  border-left: 0px !important;
+  border-right: 0px !important;
+  background-color: transparent !important;
+  border-radius: 0px !important;
+  border: dashed;
+}
+
+.form-description {
+  height: 50px;
+  font-size: large;
+}
+
+.form-category{
+  border-radius: 100px;
 }
