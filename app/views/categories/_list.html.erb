@@ -4,21 +4,22 @@
 
     <% posts.each do |post| %>
 
-      <div class="card-post">
+      <%= link_to post_path(post), style:"text-decoration: none; color: black;" do %>
+        <div class="card-post">
 
-        <%= cl_image_tag (post.photo.key), {class: "item3"}%><br>
+          <%= cl_image_tag (post.photo.key), {class: "item2"}%><br>
 
-        <div class="card-post-info">
-          <% if post.user.photo.key == nil %>
-            <%= image_tag "avatar.png", {class: "avatar-bordered"} %>
-          <% else %>
-            <%= cl_image_tag (post.user.photo.key), {class: "avatar-bordered"}%>
-          <% end %>
-          <p><%= post.user.nickname %></p>
+          <div class="card-post-info">
+            <% if post.user.photo.key == nil %>
+              <%= image_tag "avatar.png", {class: "avatar-bordered"} %>
+            <% else %>
+              <%= cl_image_tag (post.user.photo.key), {class: "avatar-bordered"}%>
+            <% end %>
+            <p><%= post.user.nickname %></p>
+          </div>
+
         </div>
-
-      </div>
-
+      <% end %>
     <% end %>
 
   </div>
