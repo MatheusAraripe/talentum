@@ -1,8 +1,12 @@
-   <%= simple_form_for [post], data: {controller: "preview"} do |f| %>
-        <%= f.input :title, placeholder: "ex: beautiful landscape"%>
-        <%= f.input :photo, input_html: { class: 'd-none', id: 'photo-input', data: {preview_target: "photoInput", action: "change->preview#displayPreview"}}, label_html: { class: 'upload-photo'}, label: '📷 Upload a photo' %>
-        <%= image_tag "", width: 300, class: "hidden", id: "photo-preview", data: {preview_target: "photoPreview"} %>
-        <%= f.input :description, placeholder: "ex: beautiful landscape in the sunrise" %>
-        <%= f.association :category, label_method: :name, value_method: :id, include_blank: false %>
-        <%= f.submit "Create a post", class: "btn btn-primary" %>
-      <% end %>
+
+<%= simple_form_for [post], data: {controller: "preview"} do |f| %>
+  <%= f.input :title,label: false, placeholder: "Title", input_html: {class: "form_post"}%>
+  <%= f.input :description,label: false, placeholder: "Description", input_html: {class: "form_post form-description"}%>
+  <%= f.association :category, label_method: :name, value_method: :id, include_blank: false, label: false, input_html: {class: "form-category"}%>
+  <div class="d-flex justify-content-center mb-3">
+    <%= image_tag "", width: 200, class: "hidden", id: "photo-preview", data: {preview_target: "photoPreview"} %>
+  </div>
+
+  <%= f.input :photo, input_html: { class: 'd-none', id: 'photo-input', data: {preview_target: "photoInput", action: "change->preview#displayPreview"}}, label_html: { class: 'upload-photo'}, label: '📷 Upload a photo' %>
+  <%= f.submit "Create a post", class: "btn btn-primary w-100 rounded-pill" %>
+<% end %>
