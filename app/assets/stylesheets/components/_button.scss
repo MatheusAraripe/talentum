@@ -28,6 +28,23 @@
   color: white;
 }
 
+
+.btn-delete {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 50px;
+  background: rgb(245, 102, 102);
+  transition: background 0.3s ease;
+  font-size: 15px;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.btn-delete:hover {
+  background: red;
+  color: white;
+}
+
 .btn-gradient {
   color: white;
   padding: 8px 24px;
