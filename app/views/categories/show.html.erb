@@ -1,24 +1,26 @@
-<div class="container">
-  <div class="row justify-content-center">
+<div class="container m-5">
+  <div class="category-page-block">
+    <div class="row justify-content-center">
 
-    <h2> <strong><%= @category.name %></strong> </h2>
+      <h2> <strong><%= @category.name %></strong> </h2>
 
-    <div data-controller="refresh-posts">
+      <div data-controller="refresh-posts">
 
-      <%= form_with url: category_path(@category), method: :get, html: { class: 'mb-5', data: { refresh_posts_target: 'form' } } do |f| %>
-        <%= f.text_field :query,
-                          class: "form-control",
-                          placeholder: 'Search here',
-                          value: params[:query],
-                          data: {
-                            refresh_posts_target: 'searchInput',
-                            action: "keyup->refresh-posts#update"
-                    } %>
-      <% end %>
+        <%= form_with url: category_path(@category), method: :get, html: { class: 'mb-5', data: { refresh_posts_target: 'form' } } do |f| %>
+          <%= f.text_field :query,
+                            class: "form-control",
+                            placeholder: 'Search here',
+                            value: params[:query],
+                            data: {
+                              refresh_posts_target: 'searchInput',
+                              action: "keyup->refresh-posts#update"
+                      } %>
+        <% end %>
 
-      <%= render 'list', posts: @posts %>
+        <%= render 'list', posts: @posts %>
+
+      </div>
 
     </div>
-
   </div>
 </div>

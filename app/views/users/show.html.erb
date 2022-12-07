@@ -1,14 +1,14 @@
-<div class="container">
+<div class="container m-5">
   <div class="card-profile">
 
     <div class="d-flex justify-content-between">
 
-      <div>
+      <div class = "user-nickname">
         <h1><%= @user.nickname %></h1>
       </div>
 
       <div class="m-2">
-        <% unless @user == current_user %>
+        <% if @user != current_user %>
           <% if current_user.is_following?(@user.id) %>
             <div class="btn btn-unfollow">
               <%= link_to "Unfollow",
@@ -28,24 +28,51 @@
               %>
             </div>
           <% end %>
+        <% else %>
+          <%= link_to new_post_path,style: "text-decoration: none;" do %>
+            <span><p><i class = "fa fa-plus-square fa-2x"></i></p></span>
+          <% end %>
         <% end %>
       </div>
     </div>
 
     <div class="row">
-      <div class="col-3">
+      <div class="col-4">
         <% if @user.photo.key == nil %>
-          <%= image_tag "avatar.png", {class: "avatar-large"} %>
+          <%= image_tag "avatar.png", {class: "avatar-profile"} %>
         <% else %>
-          <%= cl_image_tag (@user.photo.key), {class: "avatar-large"}%>
+          <%= cl_image_tag (@user.photo.key), {class: "avatar-profile"}%>
         <% end %>
       </div>
 
-      <div class="col-9">
+      <div class="col-8">
         <h3>Description</h3>
         <p><%= @user.description %></p>
       </div>
     </div>
+  </div>
+
+
+
+  <div class="feed">
+
+    <% @user.posts.each do |post| %>
+
+      <%= link_to post_path(post), style:"text-decoration: none; color: black;" do %>
+        <div class="card-post">
+
+          <%= cl_image_tag (post.photo.key), {class: "item2"}%><br>
+
+          <div class="card-post-info">
+            <p><%= post.title %></p>
+          </div>
+        </div>
+      <% end %>
+
+    <% end %>
 
   </div>
+
+
+
 </div>
