@@ -1,8 +1,12 @@
+.comments-container {
+  margin: 2px;
+}
+
 
 .comments-box {
   background: white;
   margin: 5px 5px 5px 5px;
-  height: 100px;
+  height: 200px;
   overflow: scroll;
 }
 
@@ -13,6 +17,7 @@
   // margin-bottom: 8px;
   padding: 2px 2px;
   border: 1px solid rgb(235,235,235);
+  width: 100%;
 }
 
 .comment .comment-content {
@@ -34,6 +39,7 @@
   opacity: 0;
   display: flex;
   transition: ease .3s;
+  float: right;
 }
 
 .comment:hover .comment-actions {
@@ -44,6 +50,7 @@
   color: #999999;
   margin-left: 16px;
   font-size: 14px;
+  float: right;
 }
 
 .comment .comment-actions a:hover {

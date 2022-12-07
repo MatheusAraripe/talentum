@@ -92,3 +92,38 @@
   background: none;
   border: 1px solid #75CBED;
 }
+
+
+.btn-like {
+  color: #75CBED;
+  border: 1px solid #75CBED;
+  width: 20px;
+  border-radius: 50%;
+  font-weight: lighter;
+  font-size: 15px;
+  text-decoration: none;
+  transition: opacity 0.6s ease;
+  justify-content: center;
+  align-content: center;
+}
+
+.btn-like:hover {
+  background: #75CBED;
+}
+
+.btn-unlike {
+  color: #75CBED;
+  border: 1px solid #75CBED;
+  background: #75CBED;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  font-size: 15px;
+  text-decoration: none;
+  transition: opacity 0.6s ease;
+}
+
+.btn-unlike:hover {
+  background: none;
+  border: 1px solid #75CBED;
+}

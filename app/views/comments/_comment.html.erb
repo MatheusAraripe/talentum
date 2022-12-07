@@ -1,8 +1,10 @@
 
 <div id="<%= dom_id(comment) %>" class="comment">
-  <%= cl_image_tag (comment.user.photo.key), {class: "avatar-comment"} %>
+  <div class="comment-photo">
+    <%= cl_image_tag (comment.user.photo.key), {class: "avatar-comment"} %>
+  </div>
   <div class="comment-content">
-    <p> <%= comment.user.nickname %> <small><%= comment.created_at.strftime("%I:%M %p") %></small> </p>
+    <p> <%= comment.user.nickname %> <small><%= comment.created_at.strftime("%d/%m/%Y %H:%M") %></small> </p>
     <p> <%= comment.content %> </p>
   </div>
 

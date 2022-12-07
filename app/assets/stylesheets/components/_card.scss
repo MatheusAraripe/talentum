@@ -38,19 +38,22 @@
 
 .card-post-show {
   overflow: hidden;
-  margin: 25px 50px 25px 50px;
-  height: 500px;
-  background: white;
+  // margin: 25px 100px 25px 100px;
+  height: 700px;
+  background-color: white;
   border-radius: 10px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   // align-items: center;
+  width: 1300px;
+  padding: 0;
 }
 
 .card-post-show img {
   height: 100%;
-  width: 50%;
-  object-fit: cover;
+  width: 100%;
+  background-color: white;
+  object-fit: scale-down;
 }
 
 
@@ -73,7 +76,7 @@
   margin-top: 8px;
 }
 
-.card-post-show .card-post-infos {
+.card-post-show-infos {
   padding: 16px;
-  width: 50%;
+  width: 100%;
 }
