@@ -5,6 +5,13 @@
   margin: 0.9rem ;
 }
 
+.feed-home-page{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+  margin: 0.9rem ;
+}
+
 .card-post {
   justify-content: center;
   border-radius: 8px;

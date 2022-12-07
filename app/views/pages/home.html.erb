@@ -1,5 +1,5 @@
 
-<div class="banner" style="margin-bottom: 30px;">
+<div class="banner" style="margin-bottom: 3rem; margin-top: 8rem;">
   <div class="banner-infos">
 
   <div class="container">
@@ -17,29 +17,132 @@
 </div>
 <div class="container">
 
-  <div class="cards">
-    <%= link_to category_path(@categories.find_by(name:"Photography")), style:"text-decoration: none;" do %>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://img.freepik.com/fotos-gratis/bela-foto-de-uma-cachoeira-caindo-das-montanhas_181624-1282.jpg?w=1380&t=st=1669983963~exp=1669984563~hmac=54ed155c304c8205db37311791c92ac1c0dd28d446a5b69ac7a9742b86808026)">
-        Photography
-      </div>
-    <% end %>
 
-    <%= link_to category_path(@categories.find_by(name:"Drawing")), style:"text-decoration: none;" do %>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://img.freepik.com/fotos-gratis/estatua-grega-em-estilo-de-gravura_53876-128770.jpg?w=1380&t=st=1669983877~exp=1669984477~hmac=6c1ce90218ea447ab4ee5fdb2d8314c9b38e72d19c3e84e6fbef6fa42bfe32f3)">
-        Drawning
-      </div>
-    <% end %>
+  <div class="sample-block">
+    <div class="sample-title">
+      <h3>Photography</h3>
 
-    <%= link_to category_path(@categories.find_by(name:"Illustration")), style:"text-decoration: none;" do %>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://img.freepik.com/vetores-gratis/fundo-de-ilustracao-de-criaturas-coloridas-e-assustadoras_516247-1.jpg?w=1380&t=st=1669983578~exp=1669984178~hmac=7a4435679af8daa0850905ffc1e3788ccd474f9cfb731e7c0047bc1c40075db9)">
-        Ilustration
-      </div>
-    <% end %>
 
-    <%= link_to category_path(@categories.find_by(name:"Painting")), style:"text-decoration: none;" do %>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://img.freepik.com/vetores-gratis/adesivo-de-vetor-da-mao-de-deus-pintura-famosa-da-criacao-de-adao-remixada-de-obras-de-arte-de-michelangelo-buonarroti_53876-125649.jpg?w=1480&t=st=1669983811~exp=1669984411~hmac=4290897a75d379f437359b1ab127988a4b405431771f22bce86f920d69c285c5)">
-        Painting
+      <div class="feed-home-page">
+
+        <% @photography_posts.each do |post| %>
+
+          <%= link_to post_path(post), style:"text-decoration: none; color: black;" do %>
+            <div class="card-post">
+
+              <%= cl_image_tag (post.photo.key), {class: "item2"}%><br>
+
+              <div class="card-post-info">
+                <% if post.user.photo.key == nil %>
+                  <%= image_tag "avatar.png", {class: "avatar-bordered"} %>
+                <% else %>
+                  <%= cl_image_tag (post.user.photo.key), {class: "avatar-bordered"}%>
+                <% end %>
+                <p><%= post.user.nickname %></p>
+              </div>
+
+            </div>
+          <% end %>
+        <% end %>
+
       </div>
-    <% end %>
+
+    </div>
+
+
+    <div class="sample-title">
+      <h3>Illustration</h3>
+
+
+      <div class="feed-home-page">
+
+        <% @illustration_posts.each do |post| %>
+
+          <%= link_to post_path(post), style:"text-decoration: none; color: black;" do %>
+            <div class="card-post">
+
+              <%= cl_image_tag (post.photo.key), {class: "item2"}%><br>
+
+              <div class="card-post-info">
+                <% if post.user.photo.key == nil %>
+                  <%= image_tag "avatar.png", {class: "avatar-bordered"} %>
+                <% else %>
+                  <%= cl_image_tag (post.user.photo.key), {class: "avatar-bordered"}%>
+                <% end %>
+                <p><%= post.user.nickname %></p>
+              </div>
+
+            </div>
+          <% end %>
+        <% end %>
+
+      </div>
+
+    </div>
+
+
+    <div class="sample-title">
+      <h3>Painting</h3>
+
+
+      <div class="feed-home-page">
+
+        <% @painting_posts.each do |post| %>
+
+          <%= link_to post_path(post), style:"text-decoration: none; color: black;" do %>
+            <div class="card-post">
+
+              <%= cl_image_tag (post.photo.key), {class: "item2"}%><br>
+
+              <div class="card-post-info">
+                <% if post.user.photo.key == nil %>
+                  <%= image_tag "avatar.png", {class: "avatar-bordered"} %>
+                <% else %>
+                  <%= cl_image_tag (post.user.photo.key), {class: "avatar-bordered"}%>
+                <% end %>
+                <p><%= post.user.nickname %></p>
+              </div>
+
+            </div>
+          <% end %>
+        <% end %>
+
+      </div>
+
+    </div>
+
+    <div class="sample-title">
+      <h3>Drawing</h3>
+
+
+      <div class="feed-home-page">
+
+        <% @drawing_posts.each do |post| %>
+
+          <%= link_to post_path(post), style:"text-decoration: none; color: black;" do %>
+            <div class="card-post">
+
+              <%= cl_image_tag (post.photo.key), {class: "item2"}%><br>
+
+              <div class="card-post-info">
+                <% if post.user.photo.key == nil %>
+                  <%= image_tag "avatar.png", {class: "avatar-bordered"} %>
+                <% else %>
+                  <%= cl_image_tag (post.user.photo.key), {class: "avatar-bordered"}%>
+                <% end %>
+                <p><%= post.user.nickname %></p>
+              </div>
+
+            </div>
+          <% end %>
+        <% end %>
+
+      </div>
+
+    </div>
+
+
+
   </div>
+
 </div>
