@@ -1,45 +1,64 @@
 
-<div class="row ms-5">
-  <%= link_to "Back to category", category_path(@post.category_id) %></a>
-</div>
+<div class="row justify-content-center my-5">
+  <div class="card-post-show">
 
-<div class="card-post-show">
-  <%= cl_image_tag (@post.photo.key) %>
-  <div class="card-post-infos">
-    <h1><%= @post.user.nickname %></h1>
-    <h2><%= @post.title %></h2>
-    <p><%= @post.description %></p>
-    <%= link_to like_post_path(@post), class: 'like-btn', data: {turbo_method: :put}, remote: :true do %>
-      <div>
-        <span><p><i class = "fa fa-thumbs-up fa-1x"></i></p></span>
+    <div class="col-6">
+        <%= cl_image_tag (@post.photo.key) %>
+    </div>
+
+    <div class="col-6">
+      <div class="card-post-show-infos">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h1> <%= link_to @post.user.nickname, user_path(@post.user.id), class:"text-decoration-none" %> </h1>
+          <% if @post.user == current_user %>
+            <div class="d-flex">
+              <%= link_to "Edit", edit_post_path(@post), class: 'btn-flat' %>
+              <%= link_to "Delete", @post, data: { "turbo-method": :delete }, class: 'btn-delete' %>
+            </div>
+          <% else %>
+            <%= link_to like_post_path(@post), class: '', data: {turbo_method: :put}, remote: :true  do %>
+              <div>
+                <span><p><i class = "fa fa-thumbs-up fa-2x"></i></p></span>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+
+        <div class="row">
+          <h2><%= @post.title %></h2>
+        </div>
+
+        <div class="row">
+          <p><%= @post.description %></p>
+        </div>
+
+        <div class="row">
+          <p> <%= @post.created_at.strftime("%d/%m/%Y %H:%M") %> <%= pluralize @post.get_upvotes.size, "like" %> <%= pluralize @post.comments.size, "comment" %> </p>
+        </div>
+
+        <div class="row my-1">
+          <div class = "comments-container", data-controller="insert-in-list" data-insert-in-list-position-value="beforeend">
+
+            <div class="comments-box", data-insert-in-list-target="items">
+              <% if @post.comments.blank? %>
+                Be the first to leave a comment
+              <% else %>
+                <% @post.comments.each do |comment| %>
+                  <%= render "comments/comment", comment: comment %>
+                <% end %>
+              <% end %>
+            </div>
+
+            <%= render "comments/form", post: @post, comment: @comment %>
+
+          </div>
+        </div>
+
       </div>
-    <% end %>
-    <span class = 'likes-count'> Likes: <%= @post.get_upvotes.size %></span>
+
+    </div>
   </div>
-</div>
-
-
-<p><%= pluralize @post.comments.size, "comment" %></p>
-
-<div data-controller="insert-in-list" data-insert-in-list-position-value="beforeend">
-  <div data-insert-in-list-target="items">
-    <% if @post.comments.blank? %>
-      Be the first to leave a comment
-    <% else %>
-      <% @post.comments.each do |comment| %>
-        <%= render "comments/comment", comment: comment %>
-      <% end %>
-    <% end %>
-  </div>
-
-  <% if policy(@post).edit? %>
-    <%= link_to "Edit this post", edit_post_path(@post) %>
-  <% end %>
-
-  <%= button_to "Destroy this post", @post, method: :delete if policy(@post).destroy? %>
-
-
-  <%= render "comments/form", post: @post, comment: @comment %>
 
 
 </div>
