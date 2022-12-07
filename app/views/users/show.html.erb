@@ -1,65 +1,51 @@
 <div class="container">
-  <div class="row">
-    <div class="row m-3">
-      <div class="col col-md col-sm-6">
-        <div class="container">
-          <div class="d-flex">
-            <div class="user-name">
-              <h1><%= @user.nickname %></h1>
-            </div>
-            <div class="m-2">
-              <% unless @user == current_user %>
-                <% if current_user.is_following?(@user.id) %>
-                  <div class="btn btn-unfollow">
-                    <%= link_to "Unfollow",
-                      unfollow_user_path(@user.id),
-                      data: {turbo_method: :post},
-                      style: "text-decoration: none;
-                      color: black;"
-                    %>
-                  </div>
-                <% else %>
-                  <div class="btn btn-follow">
-                    <%= link_to "Follow",
-                      follow_user_path(@user.id),
-                      data: {turbo_method: :post},
-                      style: "text-decoration: none;
-                      color: black;"
-                    %>
-                  </div>
-                <% end %>
-              <% end %>
-            </div>
-          </div>
-        </div>
-          </div>
-            <div class="col-md-auto  col-sm-6">
-              <%= image_tag "add-post.png", :class => "profile-icons"%>
-              <%= image_tag "chat-icon.png", :class => "profile-icons" %>
-            </div>
-          </div>
-          <div class="col-sm">
-            <% if @user.photo.key == nil %>
-              <%= image_tag "avatar.png", {class: "avatar-large"} %>
-            <% else %>
-              <%= cl_image_tag (@user.photo.key), {class: "avatar-large"}%>
-            <% end %>
-          </div>
-            <div class="col-9">
-              <h3>Description</h3>
-              <p><%= @user.description %></p>
+  <div class="card-profile">
 
-            <div class="feed">
-              <% @posts.each do |post| %>
-              <div class="card-post"><%= link_to post_path(post) do %>
-                <%= cl_image_tag (post.photo.key), {class: "item3"}%><br>
-              <% end %>
-              <div class="post-title">
-                <p><%= link_to post.title, post_path(post), style:"text-decoration: none; color: black;" %></p>
+    <div class="d-flex justify-content-between">
+
+      <div>
+        <h1><%= @user.nickname %></h1>
+      </div>
+
+      <div class="m-2">
+        <% unless @user == current_user %>
+          <% if current_user.is_following?(@user.id) %>
+            <div class="btn btn-unfollow">
+              <%= link_to "Unfollow",
+                unfollow_user_path(@user.id),
+                data: {turbo_method: :post},
+                style: "text-decoration: none;
+                color: black;"
+              %>
             </div>
-          </div>
+          <% else %>
+            <div class="btn btn-follow">
+              <%= link_to "Follow",
+                follow_user_path(@user.id),
+                data: {turbo_method: :post},
+                style: "text-decoration: none;
+                color: black;"
+              %>
+            </div>
+          <% end %>
         <% end %>
       </div>
     </div>
+
+    <div class="row">
+      <div class="col-3">
+        <% if @user.photo.key == nil %>
+          <%= image_tag "avatar.png", {class: "avatar-large"} %>
+        <% else %>
+          <%= cl_image_tag (@user.photo.key), {class: "avatar-large"}%>
+        <% end %>
+      </div>
+
+      <div class="col-9">
+        <h3>Description</h3>
+        <p><%= @user.description %></p>
+      </div>
+    </div>
+
   </div>
 </div>

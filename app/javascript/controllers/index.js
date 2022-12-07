@@ -10,8 +10,8 @@ application.register("hello", HelloController)
 import InsertInListController from "./insert_in_list_controller"
 application.register("insert-in-list", InsertInListController)
 
-// import RefreshListController from "./refresh_list_controller"
-// application.register("refresh-list", RefreshListController)
+import PreviewController from "./preview_controller"
+application.register("preview", PreviewController)
 
 import RefreshPostsController from "./refresh_posts_controller"
 application.register("refresh-posts", RefreshPostsController)

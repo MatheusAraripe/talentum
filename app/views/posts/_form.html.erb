@@ -1,6 +1,7 @@
-   <%= simple_form_for [post] do |f| %>
+   <%= simple_form_for [post], data: {controller: "preview"} do |f| %>
         <%= f.input :title, placeholder: "ex: beautiful landscape"%>
-        <%= f.input :photo, as: :file %>
+        <%= f.input :photo, input_html: { class: 'd-none', id: 'photo-input', data: {preview_target: "photoInput", action: "change->preview#displayPreview"}}, label_html: { class: 'upload-photo'}, label: '📷 Upload a photo' %>
+        <%= image_tag "", width: 300, class: "hidden", id: "photo-preview", data: {preview_target: "photoPreview"} %>
         <%= f.input :description, placeholder: "ex: beautiful landscape in the sunrise" %>
         <%= f.association :category, label_method: :name, value_method: :id, include_blank: false %>
         <%= f.submit "Create a post", class: "btn btn-primary" %>

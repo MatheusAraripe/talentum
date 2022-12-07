@@ -4,18 +4,18 @@
       <%= image_tag "house-solid.svg" %>
     <% end %>
 
-    <div class="d-flex">
-      <%= link_to category_path(@photo), class: "nav-category-icon", style:"text-decoration: none;" do %>
-        <%= image_tag "camera-retro-solid.svg" %>
+    <div class="d-flex tabs-underlined">
+      <%= link_to category_path(@photo), class: "tab-underlined", style:"text-decoration: none;" do %>
+        <p>photografy</p>
       <% end %>
-      <%= link_to category_path(@painting), class: "nav-category-icon", style:"text-decoration: none;" do %>
-        <%= image_tag "paint-solid.svg" %>
+      <%= link_to category_path(@painting), class: "tab-underlined", style:"text-decoration: none;" do %>
+        <p>painting</p>
       <% end %>
-      <%= link_to category_path(@illustration), class: "nav-category-icon", style:"text-decoration: none;" do %>
-        <%= image_tag "eye-dropper-solid.svg" %>
+      <%= link_to category_path(@illustration), class: "tab-underlined",style:"text-decoration: none;" do %>
+        <p>illustration</p>
       <% end %>
-      <%= link_to category_path(@drawing), class: "nav-category-icon", style:"text-decoration: none;" do %>
-        <%= image_tag "pencil-solid.svg" %>
+      <%= link_to category_path(@drawing), class: "tab-underlined",style:"text-decoration: none;" do %>
+        <p>drawing</p>
       <% end %>
     </div>
 
@@ -25,24 +25,27 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
-        <%# if user_signed_in? %>
+        <% if user_signed_in? %>
+          <li class="nav-item dropdown">
+            <% if current_user.photo.key == nil %>
+              <%= image_tag "avatar.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% else %>
+              <%= cl_image_tag (current_user.photo.key), class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% end %>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <%= link_to "Followed artists", users_path, class: "dropdown-item" %>
+              <%= link_to "My portifolio", user_path(current_user), class: "dropdown-item" %>
+              <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
+            </div>
+          </li>
+        <% else %>
           <li class="nav-item dropdown">
             <%= image_tag "avatar.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <% if user_signed_in? %>
-                <%= link_to "Followed artists", users_path, class: "dropdown-item" %>
-                <%= link_to "My portifolio", user_path(current_user), class: "dropdown-item" %>
-                <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
-              <% else %>
-                <%= link_to "Sign in", user_session_path, class: "dropdown-item" %>
-              <% end %>
+              <%= link_to "Sign in", user_session_path, class: "dropdown-item" %>
             </div>
           </li>
-        <%# else %>
-          <!--li class="nav-item"-->
-            <%#= link_to "Login", new_user_session_path, class: "nav-link" %>
-          <!--/li-->
-        <%# end %>
+        <% end %>
       </ul>
     </div>
   </div>
