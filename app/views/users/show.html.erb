@@ -60,7 +60,9 @@
 
       <%= link_to post_path(post), style:"text-decoration: none; color: black;" do %>
         <div class="card-post">
+
           <%= cl_image_tag (post.photo.key), {class: "item2"}%><br>
+
           <div class="card-post-info">
             <p><%= post.title %></p>
           </div>

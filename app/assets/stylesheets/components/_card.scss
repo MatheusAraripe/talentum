@@ -4,11 +4,13 @@
   grid-gap: 16px;
   margin: 0.9rem ;
 }
+
 .card-post {
   justify-content: center;
   border-radius: 8px;
   height: 100%;
   width: 100%;
+  position: relative;
 }
 
 .card-post > img {
@@ -30,17 +32,31 @@
 
 
 .card-post .item1 { height: 200px; }
+.card-post .item3 { height: 400px; }
+.card-post .item4 { height: 500px; }
+
+
 .card-post .item2 {
   height: 300px;
   transition: 0.2s;
   border: 1px solid rgba(120, 120, 120, 0.581);
 }
-.card-post .item3 { height: 400px; }
-.card-post .item4 { height: 500px; }
 
-.item2:hover{
-  height: 296px;
-  border: transparent;
+
+.card-post:before {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 0%;
+  width: 100%;
+  top: 0;
+  transition: height 0.5s ease-out;
+  background: linear-gradient(to top, transparent 50%, rgba(0, 0, 0, 0.628) 100%);
+  border-radius: 5px;
+}
+
+.card-post:hover:before {
+  height: 100%;
 }
 
 // Card for the posts#show
