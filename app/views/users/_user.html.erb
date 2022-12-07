@@ -1,15 +1,17 @@
 <%= link_to user_path(user), style:"text-decoration: none; color: black" do %>
   <li  class = "following-list" data-user=<%= user.id %> >
-    <div class="card-product">
+    <div class="card-trip">
       <% if user.photo.key == nil %>
         <%= image_tag "avatar.png" %>
       <% else %>
         <%= cl_image_tag (user.photo.key)%>
       <% end %>
-      <div class="card-product-infos">
-        <h2><%= user.nickname %></h2>
-        <p><%= user.description %></p>
-        <strong class = "category-<%=user.category.name%>">#<%= user.category.name %></strong>
+      <div class="card-trip-infos">
+        <div>
+          <h2><%= user.nickname %></h2>
+          <p><%= user.email %></p>
+        </div>
+        <h3 class = "category-<%=user.category.name%>">#<%= user.category.name %></h3>
       </div>
     </div>
   </li>
