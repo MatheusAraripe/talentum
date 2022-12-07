@@ -2,7 +2,7 @@
   <li  class = "following-list" data-user=<%= user.id %> >
     <div class="card-trip">
       <% if user.photo.key == nil %>
-        <%= image_tag "avatar.png" %>
+        <%= image_tag "avatarprofile.png" %>
       <% else %>
         <%= cl_image_tag (user.photo.key)%>
       <% end %>
