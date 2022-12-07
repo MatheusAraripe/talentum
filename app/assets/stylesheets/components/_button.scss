@@ -30,10 +30,10 @@
 
 
 .btn-delete {
-  color: white;
+  color: rgb(255, 0, 0);
   padding: 8px 24px;
   border-radius: 50px;
-  background: rgb(245, 102, 102);
+  border: 1px solid rgb(255, 0, 0);
   transition: background 0.3s ease;
   font-size: 15px;
   text-decoration: none;
@@ -41,8 +41,8 @@
 }
 
 .btn-delete:hover {
-  background: red;
-  color: white;
+  background: rgb(255, 217, 217);
+  color: rgb(255, 0, 0);
 }
 
 .btn-gradient {
