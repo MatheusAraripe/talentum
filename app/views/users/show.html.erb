@@ -8,7 +8,7 @@
       </div>
 
       <div class="m-2">
-        <% unless @user == current_user %>
+        <% if @user != current_user %>
           <% if current_user.is_following?(@user.id) %>
             <div class="btn btn-unfollow">
               <%= link_to "Unfollow",
@@ -27,6 +27,10 @@
                 color: black;"
               %>
             </div>
+          <% end %>
+        <% else %>
+          <%= link_to new_post_path,style: "text-decoration: none;" do %>
+            <span><p><i class = "fa fa-plus-square fa-2x"></i></p></span>
           <% end %>
         <% end %>
       </div>
