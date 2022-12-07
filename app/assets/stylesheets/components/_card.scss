@@ -15,7 +15,7 @@
   height: 100%;
   width: 100%;
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: 5px;
 }
 
 .card-post-info {
@@ -29,12 +29,19 @@
 }
 
 
-
 .card-post .item1 { height: 200px; }
-.card-post .item2 { height: 300px; }
+.card-post .item2 {
+  height: 300px;
+  transition: 0.2s;
+  border: 1px solid rgba(120, 120, 120, 0.581);
+}
 .card-post .item3 { height: 400px; }
 .card-post .item4 { height: 500px; }
 
+.item2:hover{
+  height: 296px;
+  border: transparent;
+}
 
 // Card for the posts#show
 
