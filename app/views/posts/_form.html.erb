@@ -6,7 +6,6 @@
   <div class="d-flex justify-content-center mb-3">
     <%= image_tag "", width: 200, class: "hidden", id: "photo-preview", data: {preview_target: "photoPreview"} %>
   </div>
-
-  <%= f.input :photo, input_html: { class: 'd-none', id: 'photo-input', data: {preview_target: "photoInput", action: "change->preview#displayPreview"}}, label_html: { class: 'upload-photo'}, label: '📷 Upload a photo' %>
+  <%= f.input :photo, input_html: { class: 'd-none', id: 'photo-input', data: {preview_target: "photoInput", action: "change->preview#displayPreview"}}, label_html: { class: 'upload-photo'}, label: 'Click to upload an image' %>
   <%= f.submit "Create a post", class: "btn btn-primary w-100 rounded-pill" %>
 <% end %>
