@@ -1,12 +1,35 @@
 <div class="container">
   <div class="my-5 text-center">
     <div class = "follow-title">
-      <h1>My favorit artists</h1>
+      <h1 style="font-family: Abhaya libre;">My favorit artists</h1>
     </div>
   </div>
     <div class="users-list">
-      <ul class = "d-flex justify-content-center">
-        <%= render @users %>
+      <ul class = "justify-content-center">
+        <div class="row">
+            <% @users.each do |user| %>
+             <div class="col-4">
+              <%= link_to user_path(user), style:"text-decoration: none; color: black" do %>
+                <li  class = "following-list" data-user=<%= user.id %> >
+                  <div class="card-trip">
+                    <% if user.photo.key == nil %>
+                      <%= image_tag "avatarprofile.png" %>
+                    <% else %>
+                      <%= cl_image_tag (user.photo.key)%>
+                    <% end %>
+                    <div class="card-trip-infos">
+                    <div>
+                      <h2><%= user.nickname %></h2>
+                      <p><%= user.email %></p>
+                    </div>
+                      <h3 class = "category-<%=user.category.name%>">#<%= user.category.name %></h3>
+                    </div>
+                  </div>
+                </li>
+              <% end %>
+             </div>
+          <% end %>
+        </div>
       </ul>
     </div>
   </div>
