@@ -6,7 +6,7 @@
 .comments-box {
   background: white;
   margin: 5px 5px 5px 5px;
-  height: 200px;
+  height: 300px;
   overflow: scroll;
 }
 
@@ -63,3 +63,13 @@
   display: flex;
   justify-content: space-between;
 }
+
+.icon-margin i {
+ margin-right: 10px;
+ font-size: 20px;
+ color: $blue;
+}
+.icon-margin {
+  display: flex;
+  align-items: center;
+ }
