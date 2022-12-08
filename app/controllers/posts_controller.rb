@@ -1,7 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[show vote]
   skip_before_action :authenticate_user!, only: [:show]
-  respond_to :js, :json, :html
 
   def new
     @post = Post.new
@@ -26,11 +25,13 @@ class PostsController < ApplicationController
   end
 
   def vote
+    authorize @post
     if !current_user.liked? @post
       @post.liked_by current_user
     elsif current_user.liked? @post
       @post.unliked_by current_user
     end
+    redirect_to post_path(@post)
   end
 
   def edit

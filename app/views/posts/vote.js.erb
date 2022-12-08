@@ -1,6 +1,0 @@
-<% if current_user.liked? @post %>
-  document.querySelector('.lik-btn').classList.at('liked');
-<% else %>
-  document.querySelector('.lik-btn').classList.at('lik-btn');
-<% end %>
-document.querySelector('.likes-count').html('<%= j render partial: 'likes', post: @post%>')

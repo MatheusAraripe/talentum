@@ -26,4 +26,7 @@ class PostPolicy < ApplicationPolicy
     record.user == user
   end
 
+  def vote?
+    true
+  end
 end

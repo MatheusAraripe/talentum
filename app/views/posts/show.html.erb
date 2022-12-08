@@ -21,7 +21,7 @@
               <%= link_to "Delete", @post, data: { "turbo-method": :delete }, class: 'btn-delete' %>
             </div>
           <% else %>
-            <%= link_to like_post_path(@post), class: '', data: {turbo_method: :put}, remote: :true  do %>
+            <%= link_to like_post_path(@post), class: '', data: {turbo_method: :put} do %>
               <div>
                 <span><p><i class = "fa fa-thumbs-up fa-2x"></i></p></span>
               </div>
@@ -38,9 +38,7 @@
 
         <div class="row">
           <p class="icon-margin"><i class="far fa-clock"></i><%= @post.created_at.strftime("%d/%m/%Y %H:%M")%></p>
-          <div class="likes-count">
-            <%= render "likes", post: @post %>
-          </div>
+          <p class="icon-margin"><i class="far fa-thumbs-up"></i><%= pluralize @post.get_upvotes.size, "like" %></p>
           <p class="icon-margin"><i class="far fa-comment"></i><%= pluralize @post.comments.size, "comment" %></p>
         </div>
 
