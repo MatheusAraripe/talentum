@@ -26,22 +26,57 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
 Ipsum has been the industry's standard dummy text ever since the 1500s, when an
 unknown printer took a galley of type and scram "
 
-User.create(first_name: "Pablo", last_name: "Picasso",
-  email: "pablopicasso@email.com", nickname: "pablito", password: "123456", category_id: painting.id, description: description)
+file = URI.open("https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Pablo_picasso_1.jpg/800px-Pablo_picasso_1.jpg")
+pablo = User.new(first_name: "Pablo",
+  last_name: "Picasso",
+  email: "pablopicasso@email.com",
+  nickname: "Pablito",
+  password: "123456",
+  category_id: painting.id,
+  description: "He was Spanish painter, sculptor, printmaker, ceramicist and theatre designer who spent most of his adult life in France. One of the most influential artists of the 20th century, he is known for co-founding the Cubist movement, the invention of constructed sculpture, the co-invention of collage, and for the wide variety of styles that he helped develop and explore. Among his most famous works are the proto-Cubist Les Demoiselles d'Avignon, and the anti-war painting Guernica (1937), a dramatic portrayal of the bombing of Guernica by German and Italian air forces during the Spanish Civil War."
+)
+pablo.photo.attach(io: file, filename: "pablo.png", content_type: "image/png")
+pablo.save
 
-User.create(first_name: "Henri", last_name: "Cartier",
-  email: "henricartier@email.com", nickname: "hcb", password: "123456", category_id: photography.id, description: description)
+file = URI.open("https://cdn.pensador.com/img/authors/he/nr/henri-cartier-bresson-l.jpg")
+hcb = User.new(first_name: "Henri",
+  last_name: "Cartier",
+  email: "henricartier@email.com",
+  nickname: "HCB",
+  password: "123456",
+  category_id: photography.id,
+  description: "He was a French humanist photographer considered a master of candid photography, and an early user of 35mm film. He pioneered the genre of street photography, and viewed photography as capturing a decisive moment.Cartier-Bresson was one of the founding members of Magnum Photos in 1947, In the 1970s, he took up drawing—he had studied painting in the 1920s."
+)
+hcb.photo.attach(io: file, filename: "hcb.png", content_type: "image/png")
+hcb.save
 
-User.create(first_name: "Lucie", last_name: "Gautier",
-  email: "luciegautier@email.com", nickname: "lulu", password: "123456", category_id: illustration.id, description: description)
+file = URI.open("https://images.squarespace-cdn.com/content/v1/5d4aa984763a7a000158744a/1605090004615-5LCOECXR05CF9DP42GM7/LucieBirant_PERSO-Venus.jpg")
+lucie = User.new(first_name: "Lucie",
+ last_name: "Gautier",
+ email: "luciegautier@email.com",
+ nickname: "Lulu",
+ password: "123456",
+ category_id: illustration.id,
+ description: "I come from a pretty little town called Montbazon in Touraine. That's where I started drawing. I then worked for two years in Le Mans as a graphic designer, before settling in Nantes. I needed a change both culturally and professionally. And it's heartbreaking! I live from my passion."
+)
+lucie.photo.attach(io: file, filename: "lucie.png", content_type: "image/png")
+lucie.save
 
-User.create(first_name: "George", last_name: "Remi",
-  email: "georgeremi@email.com", nickname: "Herge", password: "123456", category_id: drawing.id, description: description)
+file = URI.open("https://www.bedetheque.com/media/Photos/Photo_82.jpg")
+georges = User.new(first_name: "George",
+ last_name: "Remi",
+ email: "georgeremi@email.com",
+ nickname: "Herge",
+ password: "123456",
+ category_id: drawing.id,
+ description: "Georges Prosper Remi, known by the pen name Hergé, from the French pronunciation of his reversed initials RG, was a Belgian cartoonist. He is best known for creating The Adventures of Tintin, the series of comic albums which are considered one of the most popular European comics of the 20th century. He was also responsible for two other well-known series, Quick & Flupke and The Adventures of Jo, Zette and Jocko. His works were executed in his distinct ligne claire drawing style."
+)
+georges.photo.attach(io: file, filename: "georges.png", content_type: "image/png")
+georges.save
 
-
-henri = User.find_by(nickname: "hcb")
-pablo = User.find_by(nickname: "pablito")
-lucie = User.find_by(nickname: "lulu")
+henri = User.find_by(nickname: "HCB")
+pablo = User.find_by(nickname: "Pablito")
+lucie = User.find_by(nickname: "Lulu")
 george = User.find_by(nickname: "Herge")
 
 puts "creating fake posts"
