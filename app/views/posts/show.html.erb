@@ -28,23 +28,21 @@
         <div class="row">
           <h2 class="nickname-text"><%= @post.title %></h2>
 
+        <div class="row m-50">
+          <p style="margin-block: 20px"><%= @post.description %></p>
         </div>
-        <div class="row m-20">
-          <p><%= @post.description %></p>
-        </div>
-
 
         <div class="row">
-          <p> <i class="far fa-clock"></i><%= @post.created_at.strftime("%d/%m/%Y %H:%M")%></p>
-          <p> <i class="far fa-thumbs-up"></i><%= pluralize @post.get_upvotes.size, "like" %></p>
-          <p> <i class="far fa-comment"></i><%= pluralize @post.comments.size, "comment" %></p>
+          <p class="icon-margin"><i class="far fa-clock"></i><%= @post.created_at.strftime("%d/%m/%Y %H:%M")%></p>
+          <p class="icon-margin"><i class="far fa-thumbs-up"></i><%= pluralize @post.get_upvotes.size, "like" %></p>
+          <p class="icon-margin"><i class="far fa-comment"></i><%= pluralize @post.comments.size, "comment" %></p>
         </div>
 
 
         <div class="row my-1">
           <div class = "comments-container", data-controller="insert-in-list" data-insert-in-list-position-value="beforeend">
 
-            <div class="comments-box", data-insert-in-list-target="items">
+            <div class="comments-box", data-insert-in-list-target="items" style="font-size: 13px">
               <% if @post.comments.blank? %>
                 Be the first to leave a comment
               <% else %>
