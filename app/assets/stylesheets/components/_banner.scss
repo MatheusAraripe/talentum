@@ -2,19 +2,22 @@
   background-size: cover;
   background-position: center;
   padding: 70px 0;
+
 }
 
 .banner h1 {
   margin: 0;
-  color: #9747FF;
+  background: -webkit-linear-gradient(rgb(161, 214, 246), rgb(116, 90, 244));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   font-size: 4rem;
   font-weight: bold;
 }
 
 .banner p {
   font-size: 1.6rem;
-  font-family: "Abhaya libre";
-  color: #565656;
+  font-family: "Acumin Pro";
+  color: #686767;
 
 }
 
@@ -26,5 +29,4 @@
   font-size: 20px;
   color: black;
   -webkit-text-stroke-width: medium
-
 }

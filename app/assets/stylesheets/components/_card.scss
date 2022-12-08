@@ -5,12 +5,6 @@
   margin: 0.9rem ;
 }
 
-.feed-home-page{
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 16px;
-  margin: 0.9rem ;
-}
 
 .card-post {
   justify-content: center;
@@ -57,8 +51,8 @@
   height: 0%;
   width: 100%;
   top: 0;
-  transition: height 0.5s ease-out;
-  background: linear-gradient(to top, transparent 50%, rgba(0, 0, 0, 0.628) 100%);
+  transition: height 0.3s ease-out;
+  background: linear-gradient(to top, transparent 50%, rgba(0, 0, 0, 0.447) 100%);
   border-radius: 5px;
 }
 
