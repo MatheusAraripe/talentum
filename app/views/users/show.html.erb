@@ -18,7 +18,7 @@
                 unfollow_user_path(@user.id),
                 data: {turbo_method: :post},
                 style: "text-decoration: none;
-                color: black;"
+                color: white;"
               %>
             </div>
           <% else %>
@@ -61,17 +61,17 @@
   </div>
 
 
-
+  <hr />
   <div class="feed">
 
     <% @user.posts.each do |post| %>
 
       <%= link_to post_path(post), style:"text-decoration: none; color: black;" do %>
-        <div class="card-post">
+        <div class="card-post-home">
 
           <%= cl_image_tag (post.photo.key), {class: "item2"}%><br>
 
-          <div class="card-post-info">
+          <div class="card-post-info-home">
             <p><%= post.title %></p>
           </div>
         </div>
