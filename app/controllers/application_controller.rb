@@ -31,6 +31,10 @@ class ApplicationController < ActionController::Base
     redirect_to(root_path)
   end
 
+  def default_url_options
+    { host: ENV["DOMAIN"] || "localhost:3000" }
+  end
+
   private
 
   def skip_pundit?

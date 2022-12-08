@@ -1,3 +1,7 @@
+<% content_for :meta_title, "#{DEFAULT_META["meta_product_name"]} - #{@post.title}" %>
+<% content_for :meta_description, @post.description %>
+<% content_for :meta_image, cl_image_path(@post.photo.key) %>
+
 
 <div class="row justify-content-center my-5">
   <div class="card-post-show">
