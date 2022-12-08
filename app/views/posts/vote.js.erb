@@ -1,6 +1,6 @@
 <% if current_user.liked? @post %>
-  $('.lik-btn').addClass('liked');
+  document.querySelector('.lik-btn').classList.at('liked');
 <% else %>
-  $('.lik-btn').addClass('like-btn');
+  document.querySelector('.lik-btn').classList.at('lik-btn');
 <% end %>
-$('.likes-count').html("<%= @post.get_upvotes.size %>");
+document.querySelector('.likes-count').html('<%= j render partial: 'likes', post: @post%>')
