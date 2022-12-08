@@ -18,7 +18,7 @@
                 unfollow_user_path(@user.id),
                 data: {turbo_method: :post},
                 style: "text-decoration: none;
-                color: black;"
+                color: white;"
               %>
             </div>
           <% else %>
@@ -41,11 +41,16 @@
 
     <div class="row">
       <div class="col-4">
-        <% if @user.photo.key == nil %>
-          <%= image_tag "avatar.png", {class: "avatar-profile"} %>
-        <% else %>
-          <%= cl_image_tag (@user.photo.key), {class: "avatar-profile"}%>
-        <% end %>
+        <div class="user-info-box justify-content-center">
+          <% if @user.photo.key == nil %>
+            <%= image_tag "moon.PNG", {class: "avatar-profile-moon"} %>
+          <% else %>
+            <%= cl_image_tag (@user.photo.key), {class: "avatar-profile"}%>
+          <% end %>
+          <h3><%= @user.first_name %> <%= @user.last_name %></h3>
+          <p><%= @user.email %></p>
+          <h3 class = "category-<%=@user.category.name%>">#<%= @user.category.name %></h3>
+        </div>
       </div>
 
       <div class="col-8">
@@ -56,17 +61,17 @@
   </div>
 
 
-
+  <hr />
   <div class="feed">
 
     <% @user.posts.each do |post| %>
 
       <%= link_to post_path(post), style:"text-decoration: none; color: black;" do %>
-        <div class="card-post">
+        <div class="card-post-home">
 
           <%= cl_image_tag (post.photo.key), {class: "item2"}%><br>
 
-          <div class="card-post-info">
+          <div class="card-post-info-home">
             <p><%= post.title %></p>
           </div>
         </div>

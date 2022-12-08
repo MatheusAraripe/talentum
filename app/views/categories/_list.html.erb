@@ -5,13 +5,13 @@
     <% posts.each do |post| %>
 
       <%= link_to post_path(post), style:"text-decoration: none; color: black;" do %>
-        <div class="card-post">
+        <div class="card-post-home">
 
           <%= cl_image_tag (post.photo.key), {class: "item2"}%><br>
 
-          <div class="card-post-info">
+          <div class="card-post-info-home">
             <% if post.user.photo.key == nil %>
-              <%= image_tag "avatar.png", {class: "avatar-bordered"} %>
+              <%= image_tag "moon.PNG", {class: "avatar-posts-moon"} %>
             <% else %>
               <%= cl_image_tag (post.user.photo.key), {class: "avatar-bordered"}%>
             <% end %>

@@ -1,6 +1,6 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: #e9f2f3;
 
   height: 50px;
   position: fixed; /* Set the navbar to fixed position */
@@ -29,7 +29,7 @@
 }
 
 .tabs-underlined .tab-underlined {
-  color: black;
+  color: #23231f;
   padding: 12px;
   margin: 8px;
   opacity: .4;
@@ -41,7 +41,8 @@
 
 .tab-underlined:hover{
   opacity: 1;
-  border-bottom: 1px solid black;
+  color: #707be7;
+  border-bottom: 1px solid #707be7;
 }
 
 .tab-underlined > p {
