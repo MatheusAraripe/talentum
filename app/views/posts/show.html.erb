@@ -38,7 +38,9 @@
 
         <div class="row">
           <p class="icon-margin"><i class="far fa-clock"></i><%= @post.created_at.strftime("%d/%m/%Y %H:%M")%></p>
-          <p class="icon-margin"><i class="far fa-thumbs-up"></i><%= pluralize @post.get_upvotes.size, "like" %></p>
+          <div class="likes-count">
+            <%= render "likes", post: @post %>
+          </div>
           <p class="icon-margin"><i class="far fa-comment"></i><%= pluralize @post.comments.size, "comment" %></p>
         </div>
 
