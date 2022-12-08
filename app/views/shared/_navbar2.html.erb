@@ -1,12 +1,12 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
     <%= link_to root_path, class: "navbar-brand" do %>
-      <%= image_tag "house-solid.svg" %>
+      <i class = "fa fa-house"></i>
     <% end %>
 
     <div class="d-flex tabs-underlined">
       <%= link_to category_path(@photo), class: "tab-underlined", style:"text-decoration: none;" do %>
-        <p>photografy</p>
+        <p>photography</p>
       <% end %>
       <%= link_to category_path(@painting), class: "tab-underlined", style:"text-decoration: none;" do %>
         <p>painting</p>

@@ -1,3 +1,57 @@
 .sample-title{
   margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+.sample-title > h3 {
+  font-family: "Acumin Pro";
+  font-weight: bold;
+}
+
+
+.feed-home-page{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+  margin: 0.9rem ;
+}
+
+.card-post-home {
+  justify-content: center;
+  border-radius: 8px;
+  height: 100%;
+  width: 100%;
+  position: relative;
+
+}
+
+.card-post-home > img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  transition-duration: 0.4s ;
+}
+
+.card-post-info-home {
+  display: flex;
+  align-items: center;
+  margin-top: 2px;
+}
+
+.card-post-info-home > p {
+  margin: 0px 0px 0px 5px
+}
+
+
+.card-post-home .item2 {
+  height: 300px;
+  transition: 0.2s;
+}
+
+.card-post-home > img:hover{
+  box-shadow: rgba(46, 169, 240, 0.251) 5px 5px, rgba(46, 169, 240, 0.3) 10px 10px, rgba(46, 224, 240, 0.2) 15px 15px, rgba(46, 85, 240, 0.1) 20px 20px, rgba(46, 75, 240, 0.05) 25px 25px;
+  margin-bottom: 10px;
+  height: 302px;
 }

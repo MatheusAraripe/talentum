@@ -1,26 +1,31 @@
 
-<div class="banner" style="margin-bottom: 3rem; margin-top: 8rem;">
+<div class="banner" style="margin-bottom: 6rem; margin-top: 3rem;">
   <div class="banner-infos">
 
-  <div class="container">
-    <div class="row justify-content">
-      <div class="col-12 col-sm-6">
+    <div class="container">
+      <div class="row justify-content" style="margin-top: 3rem;">
+        <div class="col-6 col-sm-6 teste">
           <h1>The world is full<br> of TALENTUNs!</h1>
-          <p> </p>
           <p>Talentum is connecting artists with partners and art lovers around the world!🌍</p>
           <%= link_to "JOIN US", new_user_registration_path, class: "btn-flat" %></a>
           <%= link_to "SIGN IN", new_user_session_path, class: "btn-ghost" %></a>
+        </div>
+        <div class="col-6 mascot-block align-items-center">
+          <%= image_tag "moon.png", class: "mascot"%>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+
+
 <div class="container">
 
 
   <div class="sample-block">
     <div class="sample-title">
-      <h3>Photography</h3>
+      <h3><i class = "fa fa-image"></i> Photography</h3>
 
 
       <div class="feed-home-page">
@@ -28,11 +33,11 @@
         <% @photography_posts.each do |post| %>
 
           <%= link_to post_path(post), style:"text-decoration: none; color: black;" do %>
-            <div class="card-post">
+            <div class="card-post-home">
 
               <%= cl_image_tag (post.photo.key), {class: "item2"}%><br>
 
-              <div class="card-post-info">
+              <div class="card-post-info-home">
                 <% if post.user.photo.key == nil %>
                   <%= image_tag "avatar.png", {class: "avatar-bordered"} %>
                 <% else %>
@@ -51,7 +56,8 @@
 
 
     <div class="sample-title">
-      <h3>Illustration</h3>
+      <h3><i class="fa fa-droplet"></i> Illustration</h3>
+
 
 
       <div class="feed-home-page">
@@ -59,11 +65,11 @@
         <% @illustration_posts.each do |post| %>
 
           <%= link_to post_path(post), style:"text-decoration: none; color: black;" do %>
-            <div class="card-post">
+            <div class="card-post-home">
 
               <%= cl_image_tag (post.photo.key), {class: "item2"}%><br>
 
-              <div class="card-post-info">
+              <div class="card-post-info-home">
                 <% if post.user.photo.key == nil %>
                   <%= image_tag "avatar.png", {class: "avatar-bordered"} %>
                 <% else %>
@@ -82,7 +88,7 @@
 
 
     <div class="sample-title">
-      <h3>Painting</h3>
+      <h3><i class = "fa fa-brush"></i> Painting</h3>
 
 
       <div class="feed-home-page">
@@ -90,11 +96,11 @@
         <% @painting_posts.each do |post| %>
 
           <%= link_to post_path(post), style:"text-decoration: none; color: black;" do %>
-            <div class="card-post">
+            <div class="card-post-home">
 
               <%= cl_image_tag (post.photo.key), {class: "item2"}%><br>
 
-              <div class="card-post-info">
+              <div class="card-post-info-home">
                 <% if post.user.photo.key == nil %>
                   <%= image_tag "avatar.png", {class: "avatar-bordered"} %>
                 <% else %>
@@ -112,7 +118,7 @@
     </div>
 
     <div class="sample-title">
-      <h3>Drawing</h3>
+      <h3><i class = "fa fa-pencil"></i> Drawing</h3>
 
 
       <div class="feed-home-page">
@@ -120,11 +126,11 @@
         <% @drawing_posts.each do |post| %>
 
           <%= link_to post_path(post), style:"text-decoration: none; color: black;" do %>
-            <div class="card-post">
+            <div class="card-post-home">
 
               <%= cl_image_tag (post.photo.key), {class: "item2"}%><br>
 
-              <div class="card-post-info">
+              <div class="card-post-info-home">
                 <% if post.user.photo.key == nil %>
                   <%= image_tag "avatar.png", {class: "avatar-bordered"} %>
                 <% else %>
