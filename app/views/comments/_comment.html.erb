@@ -8,7 +8,7 @@
     <% end %>
   </div>
   <div class="comment-content">
-    <p> <%= comment.user.nickname %> <small><%= comment.created_at.strftime("%d/%m/%Y %H:%M") %></small> </p>
+    <p> <%= comment.user.nickname %> <small><%= comment.created_at.localtime.strftime("%d/%m/%Y %H:%M") %></small> </p>
     <p> <%= comment.content %> </p>
   </div>
 
