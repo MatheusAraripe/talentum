@@ -4,7 +4,7 @@
 
     <div class="card-trip">
       <% if user.photo.key == nil %>
-        <%= image_tag "moon.PNG" %>
+        <%= image_tag "cover.png" %>
       <% else %>
         <%= cl_image_tag (user.photo.key)%>
       <% end %>

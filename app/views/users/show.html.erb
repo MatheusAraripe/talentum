@@ -43,7 +43,7 @@
       <div class="col-4">
         <div class="user-info-box justify-content-center">
           <% if @user.photo.key == nil %>
-            <%= image_tag "moon.PNG", {class: "avatar-profile-moon"} %>
+            <%= image_tag "cover.png", {class: "avatar-profile-moon"} %>
           <% else %>
             <%= cl_image_tag (@user.photo.key), {class: "avatar-profile"}%>
           <% end %>

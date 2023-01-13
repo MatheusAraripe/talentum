@@ -11,7 +11,7 @@
 
           <div class="card-post-info-home">
             <% if post.user.photo.key == nil %>
-              <%= image_tag "moon.PNG", {class: "avatar-posts-moon"} %>
+              <%= image_tag "cover.png", {class: "avatar-posts-moon"} %>
             <% else %>
               <%= cl_image_tag (post.user.photo.key), {class: "avatar-bordered"}%>
             <% end %>

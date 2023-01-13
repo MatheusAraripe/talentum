@@ -4,7 +4,7 @@
       <i class = "fa fa-house"></i>
     <% end %>
 
-    <div class="d-flex tabs-underlined">
+    <div class="d-flex tabs-underlined category-links">
       <%= link_to category_path(@photo), class: "tab-underlined", style:"text-decoration: none;" do %>
         <p>photography</p>
       <% end %>
@@ -25,6 +25,20 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
+        <div class="categories-responsive">
+          <%= link_to category_path(@photo), class: "tab-underlined", style:"text-decoration: none;" do %>
+            <p>photography</p>
+          <% end %>
+          <%= link_to category_path(@painting), class: "tab-underlined", style:"text-decoration: none;" do %>
+            <p>painting</p>
+          <% end %>
+          <%= link_to category_path(@illustration), class: "tab-underlined",style:"text-decoration: none;" do %>
+            <p>illustration</p>
+          <% end %>
+          <%= link_to category_path(@drawing), class: "tab-underlined",style:"text-decoration: none;" do %>
+            <p>drawing</p>
+          <% end %>
+        </div>
         <% if user_signed_in? %>
           <li class="nav-item dropdown">
             <% if current_user.photo.key == nil %>
