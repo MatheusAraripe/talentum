@@ -21,3 +21,41 @@
 .footer-links a:hover {
   opacity: 1;
 }
+
+
+@media screen and (max-width: 992px){
+  .footer-links a {
+    font-size: 20px;
+  }
+  .footer-copyright{
+    font-size: 1rem;
+  }
+}
+
+/* medium devices */
+
+@media screen and (max-width: 768px){
+  .footer-links a {
+    padding: 0px 8px;
+    font-size: 16px;
+  }
+  .footer-copyright{
+    font-size: 11px;
+  }
+}
+
+@media screen and (max-width: 576px){
+}
+
+/* small devices */
+
+@media screen and (max-width: 350px){
+  .footer-links a {
+    padding: 0px 7px;
+    font-size: 14px;
+  }
+
+  .footer-copyright{
+    font-size: 10px;
+  }
+}
