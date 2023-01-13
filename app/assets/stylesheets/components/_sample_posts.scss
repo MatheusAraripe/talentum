@@ -1,3 +1,7 @@
+.sample-block{
+  background-color: antiquewhite;
+}
+
 .sample-title{
   margin-top: 3rem;
   margin-bottom: 3rem;
@@ -54,4 +58,50 @@
   box-shadow: rgba(46, 169, 240, 0.251) 5px 5px, rgba(46, 169, 240, 0.3) 10px 10px, rgba(46, 224, 240, 0.2) 15px 15px, rgba(46, 85, 240, 0.1) 20px 20px, rgba(46, 75, 240, 0.05) 25px 25px;
   margin-bottom: 10px;
   height: 302px;
+}
+
+
+@media screen and (max-width: 992px){
+  .sample-block{
+    width: 900px;
+  }
+}
+
+/* medium devices */
+
+@media screen and (max-width: 768px){
+
+  .sample-block{
+    width: 100%;
+  }
+
+  .sample-title > h3 {
+    font-size: 1.3rem;
+  }
+
+  .feed-home-page{
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 13px;
+  }
+
+  .card-post-info-home{
+    font-size: 13px;
+  }
+
+}
+
+@media screen and (max-width: 576px){
+
+  .sample-title > h3 {
+    font-size: 1.2rem;
+  }
+
+  .feed-home-page{
+    grid-template-columns: 1fr;
+  }
+
+  .card-post-info-home{
+    font-size: 12px;
+  }
+
 }
