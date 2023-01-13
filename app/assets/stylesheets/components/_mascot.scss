@@ -11,3 +11,12 @@
   padding: 0;
   height: 2rem;
 }
+
+
+/* medium devices */
+
+@media screen and (max-width: 768px){
+  .mascot-block{
+    display: none;
+  }
+}

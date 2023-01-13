@@ -2,7 +2,6 @@
   background-size: cover;
   background-position: center;
   padding: 70px 0;
-
 }
 
 .banner h1 {
@@ -29,4 +28,49 @@
   font-size: 20px;
   color: black;
   -webkit-text-stroke-width: medium
+}
+
+
+@media screen and (max-width: 992px){
+  .banner h1{
+    font-size: 3.3rem;
+  }
+
+  .banner p {
+    font-size: 1.3rem;
+  }
+}
+
+/* medium devices */
+
+@media screen and (max-width: 768px){
+  .baner-text{
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 576px){
+  .banner h1{
+    font-size: 3rem;
+  }
+
+  .banner p {
+    font-size: 1.1rem;
+  }
+
+}
+
+/* small devices */
+
+@media screen and (max-width: 350px){
+  .banner h1{
+    font-size: 2.8rem;
+  }
+
+  .baner-text{
+    padding: 5px;
+  }
+
 }
